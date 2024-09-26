@@ -1,4 +1,3 @@
-  Miracle Build System - README
 
 Miracle Build System
 ====================
