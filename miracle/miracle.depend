@@ -1,0 +1,910 @@
+# depslib dependency file v1.0
+1523278526 source:c:\users\gamer\desktop\umbrella\buildsystem\common\path\path.cpp
+	"path.h"
+	<string.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<io.h>
+	<unistd.h>
+	<dirent.h>
+	<assert.h>
+	<fstream>
+	<stdexcept>
+	<Helpers/Helpers.hpp>
+	"path.h"
+	<chrono>
+	<experimental/filesystem>
+	<experimental/filesystem>
+	<iterator>
+	<functional>
+
+1523278482 c:\users\gamer\desktop\umbrella\buildsystem\common\path\path.h
+	<chrono>
+	<vector>
+	<string>
+
+1521194782 c:\users\gamer\desktop\umbrella\buildsystem\common\helpers\helpers.hpp
+	<string>
+	<iostream>
+	<sstream>
+
+1523647355 source:c:\users\gamer\desktop\umbrella\buildsystem\miracle\main.cpp
+	<iostream>
+	<kaguya/kaguya.hpp>
+	<Executer.hpp>
+	<fstream>
+	<process.hpp>
+	<regex>
+	<windows.h>
+	<io.h>
+
+1519298427 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\kaguya.hpp
+	"kaguya/config.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/native_function.hpp"
+	"kaguya/state.hpp"
+	"kaguya/lua_ref_table.hpp"
+	"kaguya/lua_ref_function.hpp"
+	"kaguya/ref_tuple.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\config.hpp
+	<string>
+	<lua.h>
+	<lauxlib.h>
+	<lualib.h>
+	<functional>
+	<tuple>
+	<memory>
+	<utility>
+	<type_traits>
+	<initializer_list>
+	<array>
+	<boost/function.hpp>
+	<boost/tuple/tuple.hpp>
+	<boost/shared_ptr.hpp>
+	<boost/make_shared.hpp>
+	<boost/type_traits.hpp>
+	<boost/static_assert.hpp>
+	<boost/utility/result_of.hpp>
+
+1482425480 c:\users\gamer\desktop\umbrella\buildsystem\common\liblua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1482415730 c:\users\gamer\desktop\umbrella\buildsystem\common\liblua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1481039672 c:\users\gamer\desktop\umbrella\buildsystem\common\liblua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1484244866 c:\users\gamer\desktop\umbrella\buildsystem\common\liblua\lualib.h
+	"lua.h"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\lua_ref.hpp
+	<vector>
+	<map>
+	<cassert>
+	<algorithm>
+	<ostream>
+	<istream>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/detail/lua_ref_impl.hpp"
+	"kaguya/detail/lua_variant_def.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\error_handler.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/type.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\type.hpp
+	<string>
+	<cstring>
+	"kaguya/config.hpp"
+	"kaguya/optional.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/object.hpp"
+	"kaguya/exception.hpp"
+	"kaguya/push_tuple.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\optional.hpp
+	<cassert>
+	"kaguya/config.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\traits.hpp
+	<string>
+	<vector>
+	<map>
+	"kaguya/config.hpp"
+	"kaguya/optional.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\object.hpp
+	<string>
+	<cstring>
+	<typeinfo>
+	<algorithm>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/exception.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\utility.hpp
+	<iostream>
+	<cxxabi.h>
+	"kaguya/config.hpp"
+	"kaguya/compatibility.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/preprocess.hpp"
+	"kaguya/exception.hpp"
+	"kaguya/utility_cxx11.hpp"
+	"kaguya/utility_cxx03.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\compatibility.hpp
+	"kaguya/config.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\preprocess.hpp
+	"kaguya/preprocess_repeate.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\preprocess_repeate.hpp
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\exception.hpp
+	<exception>
+	<stdexcept>
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\utility_cxx11.hpp
+	<string>
+	"kaguya/config.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\utility_cxx03.hpp
+	<string>
+	"kaguya/config.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\push_tuple.hpp
+	"kaguya/config.hpp"
+	"kaguya/traits.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\detail\lua_ref_impl.hpp
+	<vector>
+	<map>
+	<cassert>
+	<algorithm>
+	<ostream>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\detail\lua_variant_def.hpp
+	"kaguya/detail/lua_function_def.hpp"
+	"kaguya/detail/lua_table_def.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\detail\lua_function_def.hpp
+	<vector>
+	<map>
+	<cassert>
+	<algorithm>
+	<ostream>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\detail\lua_table_def.hpp
+	<vector>
+	<map>
+	<algorithm>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\native_function.hpp
+	<string>
+	<vector>
+	<iterator>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/type.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/native_function_cxx11.hpp"
+	"kaguya/native_function_cxx03.hpp"
+	"kaguya/function_tuple_def.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\native_function_cxx11.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/object.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\native_function_cxx03.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/object.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\function_tuple_def.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/preprocess.hpp"
+
+1521212368 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\state.hpp
+	<string>
+	<iostream>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/metatable.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/lua_ref_table.hpp"
+	"kaguya/lua_ref_function.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\metatable.hpp
+	<string>
+	<vector>
+	<map>
+	<typeinfo>
+	"kaguya/config.hpp"
+	"kaguya/push_any.hpp"
+	"kaguya/native_function.hpp"
+	"kaguya/lua_ref_function.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\push_any.hpp
+	<memory>
+	"kaguya/config.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/utility.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\lua_ref_function.hpp
+	<vector>
+	<map>
+	<cassert>
+	"kaguya/config.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/exception.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/detail/lua_function_def.hpp"
+	"kaguya/detail/lua_variant_def.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\lua_ref_table.hpp
+	<vector>
+	<map>
+	"kaguya/config.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/push_any.hpp"
+	"kaguya/detail/lua_ref_impl.hpp"
+	"kaguya/detail/lua_table_def.hpp"
+
+1507655542 c:\users\gamer\desktop\umbrella\buildsystem\common\kaguya\ref_tuple.hpp
+	"kaguya/config.hpp"
+
+1523278542 c:\users\gamer\desktop\umbrella\buildsystem\common\executer.hpp
+	"VariablesExpander.hpp"
+	"kaguya/kaguya.hpp"
+	"Path/Path.h"
+
+1523022013 c:\users\gamer\desktop\umbrella\buildsystem\common\variablesexpander.hpp
+	<Helpers/Helpers.hpp>
+
+1522944829 c:\users\gamer\desktop\umbrella\buildsystem\common\tiny-process-library\process.hpp
+	<string>
+	<functional>
+	<vector>
+	<mutex>
+	<thread>
+	<atomic>
+	<memory>
+	<sys/wait.h>
+
+1521300862 source:c:\users\umbrella dev\downloads\buildsystem\common\path\path.cpp
+	"path.h"
+	<string.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<io.h>
+	<unistd.h>
+	<dirent.h>
+	<assert.h>
+	<fstream>
+	<stdexcept>
+	<Helpers/Helpers.hpp>
+	"path.h"
+	<experimental/filesystem>
+	<iterator>
+	<functional>
+
+1521298867 c:\users\umbrella dev\downloads\buildsystem\common\path\path.h
+	<vector>
+	<string>
+
+1521376673 c:\users\umbrella dev\downloads\buildsystem\common\helpers\helpers.hpp
+	<string>
+	<iostream>
+	<sstream>
+
+1521395502 source:c:\users\umbrella dev\downloads\buildsystem\miracle\main.cpp
+	<iostream>
+	<kaguya/kaguya.hpp>
+	<Executer.hpp>
+	<fstream>
+	<process.hpp>
+	<regex>
+
+1519294827 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\kaguya.hpp
+	"kaguya/config.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/native_function.hpp"
+	"kaguya/state.hpp"
+	"kaguya/lua_ref_table.hpp"
+	"kaguya/lua_ref_function.hpp"
+	"kaguya/ref_tuple.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\config.hpp
+	<string>
+	<lua.h>
+	<lauxlib.h>
+	<lualib.h>
+	<functional>
+	<tuple>
+	<memory>
+	<utility>
+	<type_traits>
+	<initializer_list>
+	<array>
+	<boost/function.hpp>
+	<boost/tuple/tuple.hpp>
+	<boost/shared_ptr.hpp>
+	<boost/make_shared.hpp>
+	<boost/type_traits.hpp>
+	<boost/static_assert.hpp>
+	<boost/utility/result_of.hpp>
+
+1482421880 c:\users\umbrella dev\downloads\buildsystem\common\liblua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1482412130 c:\users\umbrella dev\downloads\buildsystem\common\liblua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1481036072 c:\users\umbrella dev\downloads\buildsystem\common\liblua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1484241266 c:\users\umbrella dev\downloads\buildsystem\common\liblua\lualib.h
+	"lua.h"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\lua_ref.hpp
+	<vector>
+	<map>
+	<cassert>
+	<algorithm>
+	<ostream>
+	<istream>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/detail/lua_ref_impl.hpp"
+	"kaguya/detail/lua_variant_def.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\error_handler.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/type.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\type.hpp
+	<string>
+	<cstring>
+	"kaguya/config.hpp"
+	"kaguya/optional.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/object.hpp"
+	"kaguya/exception.hpp"
+	"kaguya/push_tuple.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\optional.hpp
+	<cassert>
+	"kaguya/config.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\traits.hpp
+	<string>
+	<vector>
+	<map>
+	"kaguya/config.hpp"
+	"kaguya/optional.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\object.hpp
+	<string>
+	<cstring>
+	<typeinfo>
+	<algorithm>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/exception.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\utility.hpp
+	<iostream>
+	<cxxabi.h>
+	"kaguya/config.hpp"
+	"kaguya/compatibility.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/preprocess.hpp"
+	"kaguya/exception.hpp"
+	"kaguya/utility_cxx11.hpp"
+	"kaguya/utility_cxx03.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\compatibility.hpp
+	"kaguya/config.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\preprocess.hpp
+	"kaguya/preprocess_repeate.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\preprocess_repeate.hpp
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\exception.hpp
+	<exception>
+	<stdexcept>
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\utility_cxx11.hpp
+	<string>
+	"kaguya/config.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\utility_cxx03.hpp
+	<string>
+	"kaguya/config.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\push_tuple.hpp
+	"kaguya/config.hpp"
+	"kaguya/traits.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\detail\lua_ref_impl.hpp
+	<vector>
+	<map>
+	<cassert>
+	<algorithm>
+	<ostream>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\detail\lua_variant_def.hpp
+	"kaguya/detail/lua_function_def.hpp"
+	"kaguya/detail/lua_table_def.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\detail\lua_function_def.hpp
+	<vector>
+	<map>
+	<cassert>
+	<algorithm>
+	<ostream>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\detail\lua_table_def.hpp
+	<vector>
+	<map>
+	<algorithm>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\native_function.hpp
+	<string>
+	<vector>
+	<iterator>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/type.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/native_function_cxx11.hpp"
+	"kaguya/native_function_cxx03.hpp"
+	"kaguya/function_tuple_def.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\native_function_cxx11.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/object.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\native_function_cxx03.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/object.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\function_tuple_def.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/preprocess.hpp"
+
+1521208768 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\state.hpp
+	<string>
+	<iostream>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/metatable.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/lua_ref_table.hpp"
+	"kaguya/lua_ref_function.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\metatable.hpp
+	<string>
+	<vector>
+	<map>
+	<typeinfo>
+	"kaguya/config.hpp"
+	"kaguya/push_any.hpp"
+	"kaguya/native_function.hpp"
+	"kaguya/lua_ref_function.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\push_any.hpp
+	<memory>
+	"kaguya/config.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/utility.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\lua_ref_function.hpp
+	<vector>
+	<map>
+	<cassert>
+	"kaguya/config.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/exception.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/detail/lua_function_def.hpp"
+	"kaguya/detail/lua_variant_def.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\lua_ref_table.hpp
+	<vector>
+	<map>
+	"kaguya/config.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/push_any.hpp"
+	"kaguya/detail/lua_ref_impl.hpp"
+	"kaguya/detail/lua_table_def.hpp"
+
+1507644742 c:\users\umbrella dev\downloads\buildsystem\common\kaguya\ref_tuple.hpp
+	"kaguya/config.hpp"
+
+1521194226 c:\users\umbrella dev\downloads\buildsystem\common\executer.hpp
+	"VariablesExpander.hpp"
+	"kaguya/kaguya.hpp"
+	"Path/Path.h"
+
+1520504383 c:\users\umbrella dev\downloads\buildsystem\common\variablesexpander.hpp
+	<Helpers/Helpers.hpp>
+
+1521196286 c:\users\umbrella dev\downloads\buildsystem\common\tiny-process-library\process.hpp
+	<string>
+	<functional>
+	<vector>
+	<mutex>
+	<thread>
+	<memory>
+	<sys/wait.h>
+
+1727293705 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\path\path.cpp
+	"path.h"
+	<string.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<io.h>
+	<unistd.h>
+	<dirent.h>
+	<assert.h>
+	<fstream>
+	<stdexcept>
+	<Helpers/Helpers.hpp>
+	"path.h"
+	<chrono>
+	<experimental/filesystem>
+	<experimental/filesystem>
+	<iterator>
+	<functional>
+
+1727293635 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\path\path.h
+	<chrono>
+	<vector>
+	<string>
+
+1521191182 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\helpers\helpers.hpp
+	<string>
+	<iostream>
+	<sstream>
+
+1727293858 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\miracle\main.cpp
+	<iostream>
+	<kaguya/kaguya.hpp>
+	<Executer.hpp>
+	<fstream>
+	<process.hpp>
+	<regex>
+	<windows.h>
+	<io.h>
+
+1519294827 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\kaguya.hpp
+	"kaguya/config.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/native_function.hpp"
+	"kaguya/state.hpp"
+	"kaguya/lua_ref_table.hpp"
+	"kaguya/lua_ref_function.hpp"
+	"kaguya/ref_tuple.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\config.hpp
+	<string>
+	<lua.h>
+	<lauxlib.h>
+	<lualib.h>
+	<functional>
+	<tuple>
+	<memory>
+	<utility>
+	<type_traits>
+	<initializer_list>
+	<array>
+	<boost/function.hpp>
+	<boost/tuple/tuple.hpp>
+	<boost/shared_ptr.hpp>
+	<boost/make_shared.hpp>
+	<boost/type_traits.hpp>
+	<boost/static_assert.hpp>
+	<boost/utility/result_of.hpp>
+
+1482421880 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1482412130 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1481036072 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1484241266 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lualib.h
+	"lua.h"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\lua_ref.hpp
+	<vector>
+	<map>
+	<cassert>
+	<algorithm>
+	<ostream>
+	<istream>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/detail/lua_ref_impl.hpp"
+	"kaguya/detail/lua_variant_def.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\error_handler.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/type.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\type.hpp
+	<string>
+	<cstring>
+	"kaguya/config.hpp"
+	"kaguya/optional.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/object.hpp"
+	"kaguya/exception.hpp"
+	"kaguya/push_tuple.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\optional.hpp
+	<cassert>
+	"kaguya/config.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\traits.hpp
+	<string>
+	<vector>
+	<map>
+	"kaguya/config.hpp"
+	"kaguya/optional.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\object.hpp
+	<string>
+	<cstring>
+	<typeinfo>
+	<algorithm>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/exception.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\utility.hpp
+	<iostream>
+	<cxxabi.h>
+	"kaguya/config.hpp"
+	"kaguya/compatibility.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/preprocess.hpp"
+	"kaguya/exception.hpp"
+	"kaguya/utility_cxx11.hpp"
+	"kaguya/utility_cxx03.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\compatibility.hpp
+	"kaguya/config.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\preprocess.hpp
+	"kaguya/preprocess_repeate.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\preprocess_repeate.hpp
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\exception.hpp
+	<exception>
+	<stdexcept>
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\utility_cxx11.hpp
+	<string>
+	"kaguya/config.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\utility_cxx03.hpp
+	<string>
+	"kaguya/config.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\push_tuple.hpp
+	"kaguya/config.hpp"
+	"kaguya/traits.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\detail\lua_ref_impl.hpp
+	<vector>
+	<map>
+	<cassert>
+	<algorithm>
+	<ostream>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\detail\lua_variant_def.hpp
+	"kaguya/detail/lua_function_def.hpp"
+	"kaguya/detail/lua_table_def.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\detail\lua_function_def.hpp
+	<vector>
+	<map>
+	<cassert>
+	<algorithm>
+	<ostream>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\detail\lua_table_def.hpp
+	<vector>
+	<map>
+	<algorithm>
+	"kaguya/config.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\native_function.hpp
+	<string>
+	<vector>
+	<iterator>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/type.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/native_function_cxx11.hpp"
+	"kaguya/native_function_cxx03.hpp"
+	"kaguya/function_tuple_def.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\native_function_cxx11.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/object.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\native_function_cxx03.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/object.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\function_tuple_def.hpp
+	<string>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/preprocess.hpp"
+
+1521208768 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\state.hpp
+	<string>
+	<iostream>
+	"kaguya/config.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/metatable.hpp"
+	"kaguya/error_handler.hpp"
+	"kaguya/lua_ref_table.hpp"
+	"kaguya/lua_ref_function.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\metatable.hpp
+	<string>
+	<vector>
+	<map>
+	<typeinfo>
+	"kaguya/config.hpp"
+	"kaguya/push_any.hpp"
+	"kaguya/native_function.hpp"
+	"kaguya/lua_ref_function.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\push_any.hpp
+	<memory>
+	"kaguya/config.hpp"
+	"kaguya/traits.hpp"
+	"kaguya/utility.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\lua_ref_function.hpp
+	<vector>
+	<map>
+	<cassert>
+	"kaguya/config.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/exception.hpp"
+	"kaguya/type.hpp"
+	"kaguya/utility.hpp"
+	"kaguya/detail/lua_function_def.hpp"
+	"kaguya/detail/lua_variant_def.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\lua_ref_table.hpp
+	<vector>
+	<map>
+	"kaguya/config.hpp"
+	"kaguya/lua_ref.hpp"
+	"kaguya/push_any.hpp"
+	"kaguya/detail/lua_ref_impl.hpp"
+	"kaguya/detail/lua_table_def.hpp"
+
+1507651942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\kaguya\ref_tuple.hpp
+	"kaguya/config.hpp"
+
+1523274942 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\executer.hpp
+	"VariablesExpander.hpp"
+	"kaguya/kaguya.hpp"
+	"Path/Path.h"
+
+1523018413 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\variablesexpander.hpp
+	<Helpers/Helpers.hpp>
+
+1522941229 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\tiny-process-library\process.hpp
+	<string>
+	<functional>
+	<vector>
+	<mutex>
+	<thread>
+	<atomic>
+	<memory>
+	<sys/wait.h>
+

@@ -1,0 +1,34 @@
+bs:AddSearchPath ( Path.new( "D:/my_lost_folder" ) )
+c_compiler = Compiler.new()
+c_compiler:SetPath(Path.new("i686-w64-mingw32-gcc.exe"))
+c_compiler = Compiler.new()
+
+cpp_compiler = Compiler.new()
+cpp_compiler:SetPath(Path.new("i686-w64-mingw32-g++.exe"))
+linker = Linker.new();
+linker:SetPath(Path.new("i686-w64-mingw32-g++.exe"))
+toolchain = ToolChain.new()
+toolchain.CPPCompiler =  cpp_compiler
+toolchain.CCompiler =  c_compiler
+toolchain.StaticLinker = linker
+toolchain.DynamicLinker = linker
+target = Target.new();
+target.BuildToolChain = toolchain
+target.WorkingPath = Path.new("d:/")
+target.OutputFolder = Path.new("d:/")
+target.Type = "SHARED_LIBRARY"
+target:SetOutputFileName("main")
+target:AddSourceFile('my_lost_file.cpp');
+if ( not (target:Build()) ) then
+print ("cpp errors : \n")
+print(cpp_compiler:GetConsoleOutput():GetStdError())
+print(cpp_compiler:GetConsoleOutput():GetStdOut())
+print ("c errors : \n")
+print(c_compiler:GetConsoleOutput():GetStdError())
+print(c_compiler:GetConsoleOutput():GetStdOut())
+print ("linker errors : \n")
+print(linker:GetConsoleOutput():GetStdError())
+print(linker:GetConsoleOutput():GetStdOut())
+else 
+  print ("Compilation done with success !\n");
+end

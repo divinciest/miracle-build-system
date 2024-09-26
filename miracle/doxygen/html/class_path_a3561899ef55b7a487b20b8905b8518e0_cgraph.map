@@ -1,0 +1,10 @@
+<map id="Path::DeepCopy" name="Path::DeepCopy">
+<area shape="rect" id="node2" href="$class_path.html#aeea0512a56304611a11db13add021efb" title="Path::CopyFile" alt="" coords="171,5,279,32"/>
+<area shape="rect" id="node3" href="$class_path.html#a4c2d8f1351d38c546023da5ce4830ee9" title="Path::IsFile" alt="" coords="181,56,269,83"/>
+<area shape="rect" id="node6" href="$class_path.html#a962d07aa5bc9835ebb49151b2a4c422a" title="Path::IsFolder" alt="" coords="173,107,276,133"/>
+<area shape="rect" id="node7" href="$class_path.html#a9302e8901abc89176975126aceb226e1" title="Path::MakeDir" alt="" coords="172,157,277,184"/>
+<area shape="rect" id="node4" href="$class_path.html#aeec4e4287ed94b3515c93ffb48fa43c1" title="Path::ToString" alt="" coords="363,69,469,96"/>
+<area shape="rect" id="node5" href="$class_path.html#a049e3b49ee7d55474ceeb5a11ad5e018" title="Path::IsFullPath" alt="" coords="553,69,668,96"/>
+<area shape="rect" id="node8" href="$class_path.html#a6c9fffbe34ffdf732c26397140fbde8e" title="Path::GetComponentCount" alt="" coords="327,132,505,159"/>
+<area shape="rect" id="node9" href="$class_path.html#ac6d305b9aa9c4ba8dba91379a05de291" title="Path::GetComponent" alt="" coords="344,183,488,209"/>
+</map>

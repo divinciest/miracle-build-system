@@ -1,0 +1,55 @@
+#pragma once
+#include "VariablesExpander.hpp"
+#include "kaguya/kaguya.hpp"
+#include "Path/Path.h"
+
+inline void error_handler(int status, const char *message)
+{
+    KAGUYA_UNUSED(status);
+    std::cout<<"Error : "<<message<<std::endl;
+}
+class Executer
+{
+   public :
+       kaguya::State state;
+       VariablesExpander variables;
+    virtual ~Executer(){}
+    Executer(){}
+    virtual void InitLuaState()
+    {
+         static auto  VariablesExpanderClass =
+
+            kaguya::UserdataMetatable<VariablesExpander>()
+            .setConstructors<VariablesExpander()>()
+            .addFunction("SetVariable",VariablesExpander::SetVariable)
+            .addFunction("GetVariableValueStr",VariablesExpander::GetVariableValueStr)
+            .addFunction("Eval",VariablesExpander::EvalToCString);
+          static auto PathClass =  kaguya::UserdataMetatable<Path>()
+            .setConstructors<Path(const char*)>()
+            .addStaticFunction("MakeDir",&Path::MakeDir)
+            .addStaticFunction("Concat",&Path::Concat)
+            .addStaticFunction("ConcatStrPath2Str",&Path::ConcatStrPath2Str)
+            .addStaticFunction("StrPathCompare",&Path::StrPathCompare)
+            .addStaticFunction("CurrentDir",&Path::CurrentDir)
+            .addStaticFunction("ChDir",&Path::ChDir)
+            .addStaticFunction("CreateSymLink",&Path::CreateSymLink)
+            .addStaticFunction("PushPath",&Path::PushPath)
+            .addStaticFunction("PopPath",&Path::PopPath)
+            .addStaticFunction("ResolvePath",&Path::ResolvePath)
+            .addStaticFunction("DeepCopy",&Path::DeepCopy)
+            .addFunction("Exists",&Path::Exists)
+            .addFunction("AddStrPath",&Path::AddStrPath)
+            .addFunction("ToStr",&Path::ToStr)
+            .addFunction("ToStrAntislash",&Path::ToStrAntislash)
+            .addFunction("AppendComponent",&Path::AppendComponent)
+            .addFunction("GetParent",&Path::GetParent)
+            .addFunction("Delete",&Path::Delete);
+        state.setErrorHandler( error_handler );
+        state["Path"].setClass(PathClass);
+        state["VariablesExpander"].setClass(VariablesExpanderClass);
+        state["variables"] = &variables;
+    }
+    virtual bool LoadFile(const char*) = 0;
+    virtual std::string GetErrorString() = 0;
+    virtual  void SetVariable (std::string,std::string) =0;
+};

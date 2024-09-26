@@ -1,0 +1,2328 @@
+# depslib dependency file v1.0
+1456756034 source:c:\users\gamer\desktop\lua\cpp\liblua\lapi.c
+	"lprefix.h"
+	<stdarg.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+
+1419872054 c:\users\gamer\desktop\lua\cpp\liblua\lprefix.h
+
+1482421880 c:\users\gamer\desktop\lua\cpp\liblua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1482412130 c:\users\gamer\desktop\lua\cpp\liblua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1425671390 c:\users\gamer\desktop\lua\cpp\liblua\lapi.h
+	"llimits.h"
+	"lstate.h"
+
+1447960582 c:\users\gamer\desktop\lua\cpp\liblua\llimits.h
+	<limits.h>
+	<stddef.h>
+	"lua.h"
+
+1482412130 c:\users\gamer\desktop\lua\cpp\liblua\lstate.h
+	"lua.h"
+	"lobject.h"
+	"ltm.h"
+	"lzio.h"
+	<signal.h>
+
+1470081084 c:\users\gamer\desktop\lua\cpp\liblua\lobject.h
+	<stdarg.h>
+	"llimits.h"
+	"lua.h"
+
+1456514416 c:\users\gamer\desktop\lua\cpp\liblua\ltm.h
+	"lobject.h"
+
+1441726866 c:\users\gamer\desktop\lua\cpp\liblua\lzio.h
+	"lua.h"
+	"lmem.h"
+
+1419009974 c:\users\gamer\desktop\lua\cpp\liblua\lmem.h
+	<stddef.h>
+	"llimits.h"
+	"lua.h"
+
+1432316756 c:\users\gamer\desktop\lua\cpp\liblua\ldebug.h
+	"lstate.h"
+
+1450702934 c:\users\gamer\desktop\lua\cpp\liblua\ldo.h
+	"lobject.h"
+	"lstate.h"
+	"lzio.h"
+
+1421164152 c:\users\gamer\desktop\lua\cpp\liblua\lfunc.h
+	"lobject.h"
+
+1450702934 c:\users\gamer\desktop\lua\cpp\liblua\lgc.h
+	"lobject.h"
+	"lstate.h"
+
+1446564962 c:\users\gamer\desktop\lua\cpp\liblua\lstring.h
+	"lgc.h"
+	"lobject.h"
+	"lstate.h"
+
+1482412130 c:\users\gamer\desktop\lua\cpp\liblua\ltable.h
+	"lobject.h"
+
+1441726866 c:\users\gamer\desktop\lua\cpp\liblua\lundump.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1482412130 c:\users\gamer\desktop\lua\cpp\liblua\lvm.h
+	"ldo.h"
+	"lobject.h"
+	"ltm.h"
+
+1520001332 source:c:\users\gamer\desktop\lua\cpp\liblua\lauxlib.c
+	"lprefix.h"
+	<errno.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	<sys/wait.h>
+
+1481036072 c:\users\gamer\desktop\lua\cpp\liblua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1473102394 source:c:\users\gamer\desktop\lua\cpp\liblua\lbaselib.c
+	"lprefix.h"
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1484241266 c:\users\gamer\desktop\lua\cpp\liblua\lualib.h
+	"lua.h"
+
+1447268890 source:c:\users\gamer\desktop\lua\cpp\liblua\lbitlib.c
+	"lprefix.h"
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1482412130 source:c:\users\gamer\desktop\lua\cpp\liblua\lcode.c
+	"lprefix.h"
+	<math.h>
+	<stdlib.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1452010958 c:\users\gamer\desktop\lua\cpp\liblua\lcode.h
+	"llex.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+
+1462197732 c:\users\gamer\desktop\lua\cpp\liblua\llex.h
+	"lobject.h"
+	"lzio.h"
+
+1468948342 c:\users\gamer\desktop\lua\cpp\liblua\lopcodes.h
+	"llimits.h"
+
+1451499374 c:\users\gamer\desktop\lua\cpp\liblua\lparser.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1460402396 source:c:\users\gamer\desktop\lua\cpp\liblua\lcorolib.c
+	"lprefix.h"
+	<stdlib.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1414955944 source:c:\users\gamer\desktop\lua\cpp\liblua\lctype.c
+	"lprefix.h"
+	"lctype.h"
+	<limits.h>
+
+1310734230 c:\users\gamer\desktop\lua\cpp\liblua\lctype.h
+	"lua.h"
+	<limits.h>
+	"llimits.h"
+	<ctype.h>
+
+1448278184 source:c:\users\gamer\desktop\lua\cpp\liblua\ldblib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1476880330 source:c:\users\gamer\desktop\lua\cpp\liblua\ldebug.c
+	"lprefix.h"
+	<stdarg.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1481644342 source:c:\users\gamer\desktop\lua\cpp\liblua\ldo.c
+	"lprefix.h"
+	<setjmp.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+	"lzio.h"
+
+1444319630 source:c:\users\gamer\desktop\lua\cpp\liblua\ldump.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lobject.h"
+	"lstate.h"
+	"lundump.h"
+
+1414955944 source:c:\users\gamer\desktop\lua\cpp\liblua\lfunc.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1482412130 source:c:\users\gamer\desktop\lua\cpp\liblua\lgc.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+
+1520001495 source:c:\users\gamer\desktop\lua\cpp\liblua\linit.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+	<luafilesystem/lfs.h>
+
+1482259020 source:c:\users\gamer\desktop\lua\cpp\liblua\liolib.c
+	"lprefix.h"
+	<ctype.h>
+	<errno.h>
+	<locale.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<sys/types.h>
+
+1462197732 source:c:\users\gamer\desktop\lua\cpp\liblua\llex.c
+	"lprefix.h"
+	<locale.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lobject.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lzio.h"
+
+1482412130 source:c:\users\gamer\desktop\lua\cpp\liblua\lmathlib.c
+	"lprefix.h"
+	<stdlib.h>
+	<math.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1425671154 source:c:\users\gamer\desktop\lua\cpp\liblua\lmem.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1484241266 source:c:\users\gamer\desktop\lua\cpp\liblua\loadlib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<dlfcn.h>
+	<windows.h>
+
+1482412130 source:c:\users\gamer\desktop\lua\cpp\liblua\lobject.c
+	"lprefix.h"
+	<locale.h>
+	<math.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"lvm.h"
+
+1420465714 source:c:\users\gamer\desktop\lua\cpp\liblua\lopcodes.c
+	"lprefix.h"
+	<stddef.h>
+	"lopcodes.h"
+
+1468864738 source:c:\users\gamer\desktop\lua\cpp\liblua\loslib.c
+	"lprefix.h"
+	<errno.h>
+	<locale.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<unistd.h>
+
+1470081084 source:c:\users\gamer\desktop\lua\cpp\liblua\lparser.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+
+1447417012 source:c:\users\gamer\desktop\lua\cpp\liblua\lstate.c
+	"lprefix.h"
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	<time.h>
+
+1448278372 source:c:\users\gamer\desktop\lua\cpp\liblua\lstring.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+
+1482412130 source:c:\users\gamer\desktop\lua\cpp\liblua\lstrlib.c
+	"lprefix.h"
+	<ctype.h>
+	<float.h>
+	<limits.h>
+	<locale.h>
+	<stddef.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<math.h>
+
+1478522316 source:c:\users\gamer\desktop\lua\cpp\liblua\ltable.c
+	"lprefix.h"
+	<math.h>
+	<limits.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1456429314 source:c:\users\gamer\desktop\lua\cpp\liblua\ltablib.c
+	"lprefix.h"
+	<limits.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<time.h>
+
+1482412130 source:c:\users\gamer\desktop\lua\cpp\liblua\ltm.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1484241266 source:c:\users\gamer\desktop\lua\cpp\liblua\lua.c
+	"lprefix.h"
+	<signal.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<unistd.h>
+	<io.h>
+	<windows.h>
+	<readline/readline.h>
+	<readline/history.h>
+
+1446480570 source:c:\users\gamer\desktop\lua\cpp\liblua\lundump.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstring.h"
+	"lundump.h"
+	"lzio.h"
+
+1482412130 source:c:\users\gamer\desktop\lua\cpp\liblua\lutf8lib.c
+	"lprefix.h"
+	<assert.h>
+	<limits.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1454702354 source:c:\users\gamer\desktop\lua\cpp\liblua\lvm.c
+	"lprefix.h"
+	<float.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1441726866 source:c:\users\gamer\desktop\lua\cpp\liblua\lzio.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"llimits.h"
+	"lmem.h"
+	"lstate.h"
+	"lzio.h"
+
+1518793353 source:c:\users\gamer\desktop\lua\cpp\liblua\lua.cpp
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+
+1513249938 source:c:\users\gamer\desktop\lua\cpp\liblua\luafilesystem\lfs.c
+	<errno.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+	<sys/stat.h>
+	<direct.h>
+	<windows.h>
+	<io.h>
+	<sys/locking.h>
+	<utime.h>
+	<sys/utime.h>
+	<fcntl.h>
+	<unistd.h>
+	<dirent.h>
+	<fcntl.h>
+	<sys/types.h>
+	<utime.h>
+	<sys/param.h>
+	<lua.h>
+	<lauxlib.h>
+	<lualib.h>
+	"lfs.h"
+
+1513249938 c:\users\gamer\desktop\lua\cpp\liblua\luafilesystem\lfs.h
+
+1456756034 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lapi.c
+	"lprefix.h"
+	<stdarg.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+
+1419872054 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lprefix.h
+
+1482421880 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1482412130 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1425671390 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lapi.h
+	"llimits.h"
+	"lstate.h"
+
+1447960582 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\llimits.h
+	<limits.h>
+	<stddef.h>
+	"lua.h"
+
+1482412130 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lstate.h
+	"lua.h"
+	"lobject.h"
+	"ltm.h"
+	"lzio.h"
+	<signal.h>
+
+1470073884 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lobject.h
+	<stdarg.h>
+	"llimits.h"
+	"lua.h"
+
+1456514416 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ltm.h
+	"lobject.h"
+
+1441719666 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lzio.h
+	"lua.h"
+	"lmem.h"
+
+1419009974 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lmem.h
+	<stddef.h>
+	"llimits.h"
+	"lua.h"
+
+1432309556 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ldebug.h
+	"lstate.h"
+
+1450702934 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ldo.h
+	"lobject.h"
+	"lstate.h"
+	"lzio.h"
+
+1421164152 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lfunc.h
+	"lobject.h"
+
+1450702934 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lgc.h
+	"lobject.h"
+	"lstate.h"
+
+1446564962 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lstring.h
+	"lgc.h"
+	"lobject.h"
+	"lstate.h"
+
+1482412130 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ltable.h
+	"lobject.h"
+
+1441719666 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lundump.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1482412130 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lvm.h
+	"ldo.h"
+	"lobject.h"
+	"ltm.h"
+
+1520001332 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lauxlib.c
+	"lprefix.h"
+	<errno.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	<sys/wait.h>
+
+1481036072 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1473095194 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lbaselib.c
+	"lprefix.h"
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1484241266 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lualib.h
+	"lua.h"
+
+1447268890 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lbitlib.c
+	"lprefix.h"
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1482412130 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lcode.c
+	"lprefix.h"
+	<math.h>
+	<stdlib.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1452010958 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lcode.h
+	"llex.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+
+1462190532 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\llex.h
+	"lobject.h"
+	"lzio.h"
+
+1468941142 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lopcodes.h
+	"llimits.h"
+
+1451499374 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lparser.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1460395196 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lcorolib.c
+	"lprefix.h"
+	<stdlib.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1414955944 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lctype.c
+	"lprefix.h"
+	"lctype.h"
+	<limits.h>
+
+1310727030 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lctype.h
+	"lua.h"
+	<limits.h>
+	"llimits.h"
+	<ctype.h>
+
+1448278184 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ldblib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1476873130 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ldebug.c
+	"lprefix.h"
+	<stdarg.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1481644342 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ldo.c
+	"lprefix.h"
+	<setjmp.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+	"lzio.h"
+
+1444312430 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ldump.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lobject.h"
+	"lstate.h"
+	"lundump.h"
+
+1414955944 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lfunc.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1482412130 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lgc.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+
+1520001495 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\linit.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+	<luafilesystem/lfs.h>
+
+1513249938 c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\luafilesystem\lfs.h
+
+1482259020 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\liolib.c
+	"lprefix.h"
+	<ctype.h>
+	<errno.h>
+	<locale.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<sys/types.h>
+
+1462190532 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\llex.c
+	"lprefix.h"
+	<locale.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lobject.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lzio.h"
+
+1482412130 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lmathlib.c
+	"lprefix.h"
+	<stdlib.h>
+	<math.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1425671154 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lmem.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1484241266 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\loadlib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<dlfcn.h>
+	<windows.h>
+
+1482412130 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lobject.c
+	"lprefix.h"
+	<locale.h>
+	<math.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"lvm.h"
+
+1420465714 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lopcodes.c
+	"lprefix.h"
+	<stddef.h>
+	"lopcodes.h"
+
+1470073884 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lparser.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+
+1447417012 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lstate.c
+	"lprefix.h"
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	<time.h>
+
+1448278372 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lstring.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+
+1482412130 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lstrlib.c
+	"lprefix.h"
+	<ctype.h>
+	<float.h>
+	<limits.h>
+	<locale.h>
+	<stddef.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<math.h>
+
+1478522316 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ltable.c
+	"lprefix.h"
+	<math.h>
+	<limits.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1456429314 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ltablib.c
+	"lprefix.h"
+	<limits.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<time.h>
+
+1482412130 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\ltm.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1513249938 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\luafilesystem\lfs.c
+	<errno.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+	<sys/stat.h>
+	<direct.h>
+	<windows.h>
+	<io.h>
+	<sys/locking.h>
+	<utime.h>
+	<sys/utime.h>
+	<fcntl.h>
+	<unistd.h>
+	<dirent.h>
+	<fcntl.h>
+	<sys/types.h>
+	<utime.h>
+	<sys/param.h>
+	<lua.h>
+	<lauxlib.h>
+	<lualib.h>
+	"lfs.h"
+
+1446480570 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lundump.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstring.h"
+	"lundump.h"
+	"lzio.h"
+
+1482412130 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lutf8lib.c
+	"lprefix.h"
+	<assert.h>
+	<limits.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1454702354 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lvm.c
+	"lprefix.h"
+	<float.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1441719666 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\lzio.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"llimits.h"
+	"lmem.h"
+	"lstate.h"
+	"lzio.h"
+
+1520277949 source:c:\users\ggd\downloads\umbrella(1)\umbrella - copie (2)\workspace\buildsystem\umbrellabuilder\liblua\loslib.c
+	"lprefix.h"
+	<errno.h>
+	<locale.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<unistd.h>
+	<stdio.h>
+	<windows.h>
+
+1456756034 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lapi.c
+	"lprefix.h"
+	<stdarg.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+
+1419872054 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lprefix.h
+
+1482421880 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1482412130 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1425671390 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lapi.h
+	"llimits.h"
+	"lstate.h"
+
+1447960582 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\llimits.h
+	<limits.h>
+	<stddef.h>
+	"lua.h"
+
+1482412130 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lstate.h
+	"lua.h"
+	"lobject.h"
+	"ltm.h"
+	"lzio.h"
+	<signal.h>
+
+1470077484 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lobject.h
+	<stdarg.h>
+	"llimits.h"
+	"lua.h"
+
+1456514416 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ltm.h
+	"lobject.h"
+
+1441723266 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lzio.h
+	"lua.h"
+	"lmem.h"
+
+1419009974 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lmem.h
+	<stddef.h>
+	"llimits.h"
+	"lua.h"
+
+1432313156 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ldebug.h
+	"lstate.h"
+
+1450702934 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ldo.h
+	"lobject.h"
+	"lstate.h"
+	"lzio.h"
+
+1421164152 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lfunc.h
+	"lobject.h"
+
+1450702934 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lgc.h
+	"lobject.h"
+	"lstate.h"
+
+1446564962 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lstring.h
+	"lgc.h"
+	"lobject.h"
+	"lstate.h"
+
+1482412130 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ltable.h
+	"lobject.h"
+
+1441723266 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lundump.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1482412130 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lvm.h
+	"ldo.h"
+	"lobject.h"
+	"ltm.h"
+
+1520001332 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lauxlib.c
+	"lprefix.h"
+	<errno.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	<sys/wait.h>
+
+1481036072 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1473098794 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lbaselib.c
+	"lprefix.h"
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1484241266 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lualib.h
+	"lua.h"
+
+1447268890 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lbitlib.c
+	"lprefix.h"
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1482412130 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lcode.c
+	"lprefix.h"
+	<math.h>
+	<stdlib.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1452010958 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lcode.h
+	"llex.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+
+1462194132 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\llex.h
+	"lobject.h"
+	"lzio.h"
+
+1468944742 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lopcodes.h
+	"llimits.h"
+
+1451499374 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lparser.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1460398796 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lcorolib.c
+	"lprefix.h"
+	<stdlib.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1414955944 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lctype.c
+	"lprefix.h"
+	"lctype.h"
+	<limits.h>
+
+1310730630 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lctype.h
+	"lua.h"
+	<limits.h>
+	"llimits.h"
+	<ctype.h>
+
+1448278184 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ldblib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1476876730 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ldebug.c
+	"lprefix.h"
+	<stdarg.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1481644342 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ldo.c
+	"lprefix.h"
+	<setjmp.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+	"lzio.h"
+
+1444316030 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ldump.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lobject.h"
+	"lstate.h"
+	"lundump.h"
+
+1414955944 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lfunc.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1482412130 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lgc.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+
+1520422213 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\linit.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+	<winreg/luareg.h>
+	<luafilesystem/lfs.h>
+
+1513249938 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\luafilesystem\lfs.h
+
+1482259020 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\liolib.c
+	"lprefix.h"
+	<ctype.h>
+	<errno.h>
+	<locale.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<sys/types.h>
+
+1462194132 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\llex.c
+	"lprefix.h"
+	<locale.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lobject.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lzio.h"
+
+1482412130 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lmathlib.c
+	"lprefix.h"
+	<stdlib.h>
+	<math.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1425671154 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lmem.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1484241266 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\loadlib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<dlfcn.h>
+	<windows.h>
+
+1482412130 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lobject.c
+	"lprefix.h"
+	<locale.h>
+	<math.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"lvm.h"
+
+1420465714 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lopcodes.c
+	"lprefix.h"
+	<stddef.h>
+	"lopcodes.h"
+
+1520281061 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\loslib.c
+	"lprefix.h"
+	<errno.h>
+	<locale.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<unistd.h>
+	<windows.h>
+
+1470077484 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lparser.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+
+1447417012 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lstate.c
+	"lprefix.h"
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	<time.h>
+
+1448278372 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lstring.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+
+1482412130 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lstrlib.c
+	"lprefix.h"
+	<ctype.h>
+	<float.h>
+	<limits.h>
+	<locale.h>
+	<stddef.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<math.h>
+
+1478522316 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ltable.c
+	"lprefix.h"
+	<math.h>
+	<limits.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1456429314 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ltablib.c
+	"lprefix.h"
+	<limits.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<time.h>
+
+1482412130 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\ltm.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1446480570 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lundump.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstring.h"
+	"lundump.h"
+	"lzio.h"
+
+1482412130 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lutf8lib.c
+	"lprefix.h"
+	<assert.h>
+	<limits.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1454702354 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lvm.c
+	"lprefix.h"
+	<float.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1441723266 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\lzio.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"llimits.h"
+	"lmem.h"
+	"lstate.h"
+	"lzio.h"
+
+1520425674 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\luafilesystem\lfs.c
+	<errno.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+	<sys/stat.h>
+	<direct.h>
+	<windows.h>
+	<io.h>
+	<sys/locking.h>
+	<utime.h>
+	<sys/utime.h>
+	<fcntl.h>
+	<unistd.h>
+	<dirent.h>
+	<fcntl.h>
+	<sys/types.h>
+	<utime.h>
+	<sys/param.h>
+	<lua.h>
+	<lauxlib.h>
+	<lualib.h>
+	"lfs.h"
+
+1479182908 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\l52util.c
+	"l52util.h"
+	<memory.h>
+	<assert.h>
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\l52util.h
+	"lua.h"
+	"lauxlib.h"
+
+1479182908 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\lua_int64.c
+	<windows.h>
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	"luamacro.h"
+	"stdmacro.h"
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\luamacro.h
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\stdmacro.h
+
+1479182908 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\lua_mtutil.c
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	"l52util.h"
+
+1479182908 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\lua_tstring.c
+	<limits.h>
+	<string.h>
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	"luamacro.h"
+
+1479182908 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\luawin_dllerror.c
+	"luawin_dllerror.h"
+	"stdmacro.h"
+	"luamacro.h"
+	"win_trace.h"
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\luawin_dllerror.h
+	<windows.h>
+	<lua.h>
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\win_trace.h
+	<windows.h>
+
+1479182908 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\win_privileges.c
+	<windows.h>
+
+1479182908 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\win_registry.c
+	<windows.h>
+
+1479182908 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\win_trace.c
+	<windows.h>
+
+1479182908 source:c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\winreg.c
+	<luamsvc.h>
+	<assert.h>
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	"l52util.h"
+	"stdmacro.h"
+	"luamacro.h"
+	"luawinmacro.h"
+	"lua_tstring.h"
+	"lua_int64.h"
+	"lua_mtutil.h"
+	"luawin_dllerror.h"
+	"win_trace.h"
+	"win_privileges.h"
+	"win_registry.h"
+	"luareg.h"
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\luawinmacro.h
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\lua_tstring.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\lua_int64.h
+	<windows.h>
+	<stdlib.h>
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\lua_mtutil.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\win_privileges.h
+	<windows.h>
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\win_registry.h
+	<windows.h>
+
+1479182908 c:\users\gamer\desktop\umbrella\buildsystem\umbrellabuilder\liblua\winreg\luareg.h
+
+1456756034 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lapi.c
+	"lprefix.h"
+	<stdarg.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+
+1419872054 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lprefix.h
+
+1482421880 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1482412130 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1425671390 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lapi.h
+	"llimits.h"
+	"lstate.h"
+
+1447960582 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\llimits.h
+	<limits.h>
+	<stddef.h>
+	"lua.h"
+
+1482412130 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lstate.h
+	"lua.h"
+	"lobject.h"
+	"ltm.h"
+	"lzio.h"
+	<signal.h>
+
+1470077484 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lobject.h
+	<stdarg.h>
+	"llimits.h"
+	"lua.h"
+
+1456514416 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ltm.h
+	"lobject.h"
+
+1441723266 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lzio.h
+	"lua.h"
+	"lmem.h"
+
+1419009974 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lmem.h
+	<stddef.h>
+	"llimits.h"
+	"lua.h"
+
+1432313156 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ldebug.h
+	"lstate.h"
+
+1450702934 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ldo.h
+	"lobject.h"
+	"lstate.h"
+	"lzio.h"
+
+1421164152 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lfunc.h
+	"lobject.h"
+
+1450702934 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lgc.h
+	"lobject.h"
+	"lstate.h"
+
+1446564962 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lstring.h
+	"lgc.h"
+	"lobject.h"
+	"lstate.h"
+
+1482412130 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ltable.h
+	"lobject.h"
+
+1441723266 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lundump.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1482412130 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lvm.h
+	"ldo.h"
+	"lobject.h"
+	"ltm.h"
+
+1520001332 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lauxlib.c
+	"lprefix.h"
+	<errno.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	<sys/wait.h>
+
+1481036072 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1473098794 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lbaselib.c
+	"lprefix.h"
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1484241266 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lualib.h
+	"lua.h"
+
+1447268890 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lbitlib.c
+	"lprefix.h"
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1482412130 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lcode.c
+	"lprefix.h"
+	<math.h>
+	<stdlib.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1452010958 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lcode.h
+	"llex.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+
+1462194132 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\llex.h
+	"lobject.h"
+	"lzio.h"
+
+1468944742 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lopcodes.h
+	"llimits.h"
+
+1451499374 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lparser.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1460398796 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lcorolib.c
+	"lprefix.h"
+	<stdlib.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1414955944 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lctype.c
+	"lprefix.h"
+	"lctype.h"
+	<limits.h>
+
+1310730630 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lctype.h
+	"lua.h"
+	<limits.h>
+	"llimits.h"
+	<ctype.h>
+
+1448278184 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ldblib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1476876730 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ldebug.c
+	"lprefix.h"
+	<stdarg.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1481644342 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ldo.c
+	"lprefix.h"
+	<setjmp.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+	"lzio.h"
+
+1444316030 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ldump.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lobject.h"
+	"lstate.h"
+	"lundump.h"
+
+1414955944 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lfunc.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1482412130 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lgc.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+
+1520425693 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\linit.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+	<luafilesystem/lfs.h>
+
+1513249938 c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\luafilesystem\lfs.h
+
+1482259020 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\liolib.c
+	"lprefix.h"
+	<ctype.h>
+	<errno.h>
+	<locale.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<sys/types.h>
+
+1462194132 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\llex.c
+	"lprefix.h"
+	<locale.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lobject.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lzio.h"
+
+1482412130 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lmathlib.c
+	"lprefix.h"
+	<stdlib.h>
+	<math.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1425671154 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lmem.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1484241266 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\loadlib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<dlfcn.h>
+	<windows.h>
+
+1482412130 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lobject.c
+	"lprefix.h"
+	<locale.h>
+	<math.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"lvm.h"
+
+1420465714 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lopcodes.c
+	"lprefix.h"
+	<stddef.h>
+	"lopcodes.h"
+
+1470077484 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lparser.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+
+1447417012 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lstate.c
+	"lprefix.h"
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	<time.h>
+
+1448278372 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lstring.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+
+1482412130 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lstrlib.c
+	"lprefix.h"
+	<ctype.h>
+	<float.h>
+	<limits.h>
+	<locale.h>
+	<stddef.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<math.h>
+
+1478522316 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ltable.c
+	"lprefix.h"
+	<math.h>
+	<limits.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1456429314 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ltablib.c
+	"lprefix.h"
+	<limits.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<time.h>
+
+1482412130 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\ltm.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1520425674 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\luafilesystem\lfs.c
+	<errno.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+	<sys/stat.h>
+	<direct.h>
+	<windows.h>
+	<io.h>
+	<sys/locking.h>
+	<utime.h>
+	<sys/utime.h>
+	<fcntl.h>
+	<unistd.h>
+	<dirent.h>
+	<fcntl.h>
+	<sys/types.h>
+	<utime.h>
+	<sys/param.h>
+	<lua.h>
+	<lauxlib.h>
+	<lualib.h>
+	"lfs.h"
+
+1446480570 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lundump.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstring.h"
+	"lundump.h"
+	"lzio.h"
+
+1482412130 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lutf8lib.c
+	"lprefix.h"
+	<assert.h>
+	<limits.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1454702354 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lvm.c
+	"lprefix.h"
+	<float.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1441723266 source:c:\users\dhiah\downloads\umbrella.7z\umbrella\buildsystem\common\liblua\lzio.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"llimits.h"
+	"lmem.h"
+	"lstate.h"
+	"lzio.h"
+

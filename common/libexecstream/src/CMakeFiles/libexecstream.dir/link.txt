@@ -1,0 +1,2 @@
+C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\bin\ar.exe cr liblibexecstream.a  CMakeFiles/libexecstream.dir/exec-stream.cpp.obj
+C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\bin\ranlib.exe liblibexecstream.a

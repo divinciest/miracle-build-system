@@ -1,0 +1,751 @@
+#include <iostream>
+#include <kaguya/kaguya.hpp>
+#include <Executer.hpp>
+#include <fstream>
+#include <process.hpp>
+const char * lua_return_str(const char * str)
+{
+   static std::string buf;
+   buf = str;
+   return buf.c_str();
+}
+struct ProcessConsoleOutput
+{
+    std::shared_ptr<std::string> output=make_shared<string>();
+    std::shared_ptr<std::string> error=make_shared<string>();
+    void Clear()
+    {
+        output->clear();
+        error->clear();
+    }
+    const char * GetStdOut()
+    {
+        return lua_return_str(output->c_str());
+    }
+    const char * GetStdError()
+    {
+        return lua_return_str(error->c_str());
+    }
+};
+struct Executable
+{
+    Path path;
+    ProcessConsoleOutput ConsoleOutput;
+    void Setpath(Path & p)
+      {
+        p.Resolve();
+        if (p.IsFullPath())
+        {
+            if (path)
+            path = p;
+            return;
+        }
+        if (p.Exists())
+        {
+            path = Path::CurrentDir() + p;
+            return;
+        }
+        auto sys_paths = Path::GetSystemPaths();
+        for (auto & p1 : sys_paths)
+        {
+            Path full_path = p1 + p;
+            if (full_path.Exists())
+            {
+                path = full_path;
+                return;
+            }
+        }
+        print("Unable to find executable '", p.ToString(),"' in file system .");
+        exit(-1);
+      }
+
+  int InvokeCommand(const char* cmd)
+  {
+    std::string full_cmd = path.ToString() + " " + cmd;
+    TinyProcessLib::Process * process = nullptr;
+    process = new TinyProcessLib::Process (full_cmd.c_str(), "", [this](const char *bytes, size_t n) {
+      *ConsoleOutput.output+=string(bytes, n);
+    }, [this](const char *bytes, size_t n) {
+      *ConsoleOutput.error+=string(bytes, n);
+    },false);
+    int status;
+    while(!process->try_get_exit_status(status));    delete process;
+    return status;
+  }
+  int InvokeCommandHidden(const char* cmd)
+  {
+    std::string full_cmd = path.ToString() + " " + cmd;
+    TinyProcessLib::Process * process = nullptr;
+    process = new TinyProcessLib::Process (full_cmd.c_str(), "", [this](const char *bytes, size_t n) {
+      *ConsoleOutput.output+=string(bytes, n);
+    }, [this](const char *bytes, size_t n) {
+      *ConsoleOutput.error+=string(bytes, n);
+    },true);
+    int status;
+    while(!process->try_get_exit_status(status));    delete process;
+    return status;
+  }
+  GETTER(ConsoleOutput);
+};
+class Compiler : public Executable
+{
+  protected :
+  public :
+  GETTER(path);
+
+  std::function<const char * (Path&,Path&,const std::vector <Path>&,std::vector <const char*>  )> GetFileCompileCommandForStaticLibrary  =
+   [] (Path& file_path,Path & output_file_path,const std::vector <Path>& include_paths,std::vector <const char*> ExtraCommands)
+    {
+        // -c required to tell the compiler not to call the linker
+      std::string rv = " -c \"" + file_path.ToString()+ "\" -o\"" +output_file_path.ToString() + "\"";
+      for (auto& i : include_paths)
+      {
+          rv += " -I\"" + i.ToString() + "\" ";
+      }
+      for (auto & cmd : ExtraCommands)
+      {
+          rv += cmd;
+          rv += " ";
+      }
+      print(rv);
+      return lua_return_str(rv.c_str());
+    };
+  std::function<const char * (Path&,Path&,const std::vector <Path>&,std::vector <const char*>  )> GetFileCompileCommand  =
+   [] (Path& file_path,Path & output_file_path,const std::vector <Path>& include_paths,std::vector <const char*> ExtraCommands)
+    {
+        // -c required to tell the compiler not to call the linker
+      std::string rv = " -c \"" + file_path.ToString()+ "\" -o\"" +output_file_path.ToString() + "\"";
+      for (auto& i : include_paths)
+      {
+          rv += " -I\"" + i.ToString() + "\" ";
+      }
+      for (auto & cmd : ExtraCommands)
+      {
+          rv += cmd;
+          rv += " ";
+      }
+      print(rv);
+      return lua_return_str(rv.c_str());
+    };
+};
+struct Linker  : public Executable
+{
+
+  std::function < const char *( std::vector <Path> obj_files , Path & output , std::vector <Path> )> GetObjFilesLinkCommandToStaticLibrary = [] ( std::vector <Path> obj_files , Path & output ,std::vector <Path> link_libraries) -> const char *
+  {
+        auto rv = "-r -s " + output.ToString() +  " ";
+  for (auto & value : obj_files)
+    rv +=  value.ToString() + " ";
+  for (auto & value : link_libraries)
+    rv +=  value.ToString() + " ";
+
+      print(rv);
+   return lua_return_str(rv.c_str());
+  };
+  std::function < const char *( std::vector <Path> obj_files , Path & output , std::vector <Path> )> GetObjFilesLinkCommandToExecutable = [] ( std::vector <Path> obj_files , Path & output ,std::vector <Path> link_libraries) -> const char *
+  {
+        auto rv = "-o " + output.ToString() +  " ";
+  for (auto & value : obj_files)
+    rv +=  value.ToString() + " ";
+  for (auto & value : link_libraries)
+    rv +=  value.ToString() + " ";
+
+      print(rv);
+   return lua_return_str(rv.c_str());
+  };
+};
+struct ToolChain
+{
+   Compiler * CCompiler = nullptr;
+   Compiler * CPPCompiler = nullptr;
+   Linker * StaticLinker = nullptr;
+   Linker * DynamicLinker = nullptr;
+};
+#include <regex>
+struct Target
+{
+    std::vector <const char * >ExtraCompilerCommands;
+    static constexpr unsigned short STR_LEN = 512;
+     char*  Name = nullptr;
+     std::string Type; // consoleapp - sharedlibrary ....
+     char* OutputFileName = nullptr;
+     std::vector <Path> IncludePaths;
+     const char * GetName(){return lua_return_str(Name);}
+     void SetName(const char * v){strcpy(Name,v);}
+      const char * GetOutputFileName(){return lua_return_str(OutputFileName);}
+     void SetOutputFileName(const char * v){strcpy(OutputFileName,v);}
+     std::vector <Path> link_libraries;
+     std::string log;
+     const char * GetLog()
+     {
+        return lua_return_str(log.c_str());
+     }
+     void ClearLog()
+     {
+         log = "";
+     }
+     template<typename ...Args>
+    void Log(Args&&... args)
+    {
+        log +=  (as_string(args), ...);
+    }
+    Target()
+    {
+        Name = new char[STR_LEN];
+        strcpy(Name,"null");
+        OutputFileName = new char[STR_LEN];
+        strcpy(OutputFileName,"null");
+    }
+    virtual ~Target()
+    {
+        delete [] Name;
+        delete [] OutputFileName;
+    }
+    void AddCompilerCommand(const char * cmd)
+    {
+      ExtraCompilerCommands.push_back(cmd);
+    }
+    ToolChain * BuildToolChain = nullptr;
+    Path WorkingPath;
+    Path OutputFolder;
+    void SetOutputFolder(const char* p)
+    {
+        OutputFolder = p;
+    }
+    Path IntermidiateDir;
+    std::vector <Path> SourceFiles;
+    void AddSourceFile (const char * path_str);
+    void AddFilesMatchsRegex(const char * regex_exr);
+    void AddIncludePath ( const char * path_str);
+    void AddFilesMatchsRegexInFolder (Path BrowseDir ,std::regex rgx)
+    {
+      auto local_files = BrowseDir.BrowseRelative();
+      for  (auto & p : local_files)
+      {
+          if (std::regex_match(p.ToStr(),rgx))
+          {
+              if (std::find(SourceFiles.begin(),SourceFiles.end(),p) == SourceFiles.end())
+              SourceFiles.push_back(BrowseDir + p);
+          }
+      }
+    }
+    void AddLinkLibrary(const char * );
+    void SetType (const char * type)
+    {
+        Type = type;
+    }
+    const char * GetType() const
+    {
+        return lua_return_str(Type.c_str());
+    }
+    int Build();
+};
+
+class MiracleExecuter : public Executer
+{
+    public :
+    std::vector <Path> SearchPaths;
+    Path ProjectSourcePath;
+    REF_GETTER(SearchPaths);
+    GETTER(ProjectSourcePath);
+    void AddSearchPath (const Path & p)
+    {
+        SearchPaths.push_back(p);
+    }
+   bool LoadFile(const char*path )
+   {
+       Path FilePath = path;
+        std::ifstream file;
+        file.open(path);
+        std::string str((std::istreambuf_iterator<char>(file)),
+                 std::istreambuf_iterator<char>());
+        Path file_full_path = FilePath.AsFullPath();
+        Path file_parent_path = file_full_path.GetParent();
+        Path::PushPath(file_parent_path);
+        ProjectSourcePath = file_parent_path;
+        state.dostring(str.c_str());
+           Path::PopPath();
+       return true;
+    }
+   std::string GetErrorString(){return "";}
+   void SetVariable (std::string ,std::string){}
+   void InitLuaState()
+   {
+       Executer::InitLuaState();
+
+      static auto executable_class = kaguya::UserdataMetatable<Executable>()
+        .addFunction("SetPath",&Executable::Setpath)
+        .addFunction("InvokeCommandHidden",&Executable::InvokeCommandHidden)
+        .addFunction("GetConsoleOutput",&Executable::GetConsoleOutput)
+        .addFunction("InvokeCommand",&Executable::InvokeCommand);
+        state["Executable"] = executable_class;
+
+      static auto toolchain_class = kaguya::UserdataMetatable<ToolChain>()
+        .setConstructors<ToolChain()>()
+        .addProperty("CPPCompiler",&ToolChain::CPPCompiler)
+        .addProperty("CCompiler",&ToolChain::CCompiler)
+        .addProperty("StaticLinker",&ToolChain::StaticLinker)
+        .addProperty("DynamicLinker",&ToolChain::DynamicLinker);
+        state["ToolChain"] = toolchain_class;
+       static auto compiler_class =
+       kaguya::UserdataMetatable<Compiler,Executable>()
+        .setConstructors<Compiler()>()
+        .addFunction("GetPath",&Compiler::Getpath)
+      //  .addProperty("Path",Compiler::Getpath,Compiler::Setpath)
+        .addFunction("GetFileCompileCommandForStaticLibrary",&Compiler::GetFileCompileCommandForStaticLibrary)
+        .addFunction("GetFileCompileCommand",&Compiler::GetFileCompileCommand);
+        state["Compiler"].setClass(compiler_class);
+
+
+            static auto linker_class =
+       kaguya::UserdataMetatable<Linker,Executable>()
+        .setConstructors<Linker()>()
+        .addProperty("GetObjFilesLinkCommandToStaticLibrary",&Linker::GetObjFilesLinkCommandToStaticLibrary)
+        .addProperty("GetObjFilesLinkCommandToExecutable",&Linker::GetObjFilesLinkCommandToExecutable);
+        state["Linker"].setClass(linker_class);
+
+       static auto process_console_output_class =
+       kaguya::UserdataMetatable<ProcessConsoleOutput>()
+        .setConstructors<ProcessConsoleOutput()>()
+        .addFunction("GetStdOut",&ProcessConsoleOutput::GetStdOut)
+        .addFunction("GetStdError",&ProcessConsoleOutput::GetStdError);
+        state["ProcessConsoleOutput"].setClass(process_console_output_class);
+
+       static auto target_class =
+       kaguya::UserdataMetatable<Target>()
+        .setConstructors<Target()>()
+        .addFunction("AddSourceFile",&Target::AddSourceFile)
+        .addFunction("AddLinkLibrary",&Target::AddLinkLibrary)
+        .addFunction("AddFilesMatchsRegex",&Target::AddFilesMatchsRegex)
+        .addFunction("Build",&Target::Build)
+        .addFunction("GetOutputFileName",&Target::GetOutputFileName)
+        .addFunction("GetName",&Target::GetName)
+        .addFunction("SetOutputFileName",&Target::SetOutputFileName)
+        .addFunction("SetName",&Target::SetName)
+        .addFunction("AddIncludePath",&Target::AddIncludePath)
+        .addFunction("GetLog",&Target::GetLog)
+        .addFunction("ClearLog",&Target::ClearLog)
+        .addFunction("AddCompilerCommand",&Target::AddCompilerCommand)
+        .addFunction("SetOutputFolder",&Target::SetOutputFolder)
+        .addProperty("BuildToolChain",&Target::BuildToolChain)
+        .addProperty("WorkingPath",&Target::WorkingPath)
+        .addProperty("Type",Target::GetType,Target::SetType);
+        state["Target"].setClass(target_class);
+
+       static auto executer_class =
+       kaguya::UserdataMetatable<MiracleExecuter>()
+        .setConstructors<MiracleExecuter()>()
+        .addFunction("AddSearchPath",MiracleExecuter::AddSearchPath)
+        .addFunction("GetProjectSourcePath",MiracleExecuter::GetProjectSourcePath);
+        state["BuildSystem"].setClass(executer_class);
+
+         state["bs"] = this;
+   }
+   static MiracleExecuter * GetExecuter()
+   {
+       static MiracleExecuter *  rv = nullptr;
+       if (rv == nullptr)
+       {
+         rv =  new MiracleExecuter();
+         rv->InitLuaState();
+       }
+       return rv;
+   }
+
+    std::vector <Path >GetFileIncludes (Path file ,std::vector <Path> include_paths = {})
+   {
+         std::vector <Path > rv;
+         GetFileIncludes(file,include_paths,rv);
+         return rv;
+   }
+   void GetFileIncludes(Path file , std::vector <Path > &include_paths,std::vector <Path >& rv)
+   {
+       rv.push_back(file);
+       std:cout<<file.ToString()<<std::endl;
+       if (!file.Exists())
+       {
+           print("file does not exist\n");
+           return;
+       }
+       std::ifstream input(file.ToStr());
+       if (!input.is_open())
+       {
+           print("Cant open file\n");
+          return;
+       }
+       char single_char = 0;
+       std::string included_file = "";
+       std::string command = "";
+       enum INCLUDE_TYPE {UNSET,LOCAL_INCLUDE,SEARCH_INCLUDE};
+       INCLUDE_TYPE include_type = UNSET;
+       while (input.good())
+       {
+           input.get(single_char);
+        if (single_char == '#')
+        {
+
+          while (input.good())
+          {
+                input.get(single_char);
+               if (single_char == ' '){
+                    while (input.good() && single_char==' ') input.get(single_char);
+                    break; // '\"' or  '<' reached
+                   }else if (single_char == '<' || single_char=='\"')
+                   {
+                       break;
+                   }
+                    command.push_back(single_char);
+          }
+          if (single_char == '<')
+          {
+             include_type = SEARCH_INCLUDE;
+          }else if (single_char == '\"')
+          {
+             include_type = LOCAL_INCLUDE;
+          } else
+          {
+               command = "";
+               continue;
+          }
+          if (command == "include")
+          {
+              // current cursor position [ 'include ^' or  'include"^'  'include<^' ]
+              // single_char = ' ' or '"' or '<'
+             single_char = 0;
+              while (input.good() && single_char != '\"' && single_char != '>')
+              {
+                    input.get(single_char);
+                    if (single_char != '>' && single_char != '\"' )
+                  included_file.push_back(single_char);
+              }
+              /*
+                 load include file recursively
+
+
+              */
+                Path new_file_path;
+                bool found = false;
+              if (include_type == LOCAL_INCLUDE)
+              {
+                    // find file
+                  new_file_path = file.GetParent() + included_file;
+                  if (new_file_path.Exists())
+                  {
+                      if (std::find (rv.begin(),rv.end() ,new_file_path) == rv.end()){
+
+                      GetFileIncludes(new_file_path,include_paths,rv);
+                       found= true;
+                      }
+                  }
+              }
+              if (not found)
+              {
+                  for (auto& path : include_paths)
+                  {
+                      new_file_path =  path+included_file;
+                                        if (new_file_path.Exists())
+                                            {
+                                                if (std::find (rv.begin(),rv.end() ,new_file_path) == rv.end()){
+
+                                        GetFileIncludes(new_file_path,include_paths,rv);
+                                        found = true; // extra
+                                        break;
+                                                }
+                                          }
+                  }
+              }
+              included_file = "";
+          }
+         // std::cout<<"'"<<command<<"'"<<std::endl;
+          command = "";
+        }
+       }
+   }
+
+};
+
+int Target::Build()
+{
+   if (!BuildToolChain) return 1;
+   if (SourceFiles.size() == 0)
+   {
+       Log("Can't build with no source files .\n");
+       return 1;
+   }
+   Path ObjDir;
+   if (!WorkingPath.IsSet())
+   {
+       WorkingPath = MiracleExecuter::GetExecuter()->GetProjectSourcePath();
+   }
+   if (IntermidiateDir.IsSet())
+   {
+       if (IntermidiateDir.IsFullPath())
+       {
+            ObjDir = IntermidiateDir;
+       }else
+       {
+           ObjDir = WorkingPath + IntermidiateDir;
+       }
+   }else
+   {
+       IntermidiateDir = WorkingPath + "obj";
+       ObjDir = WorkingPath + "obj";
+   }
+   Path::MakeIfDoesntExit(ObjDir);
+   std::vector<Path> ObjectFiles;
+   enum TargetType {CONSOLE,STATIC_LIBRRY};
+   TargetType target_type = (Type == "CONSOLE_APPLICATION") ? TargetType::CONSOLE :  TargetType::STATIC_LIBRRY;
+   for (auto& f : SourceFiles)
+   {
+       Path obj_file = ObjDir + (f.GetFileName() + ".o");
+       bool do_compile = false;
+       auto deps = MiracleExecuter::GetExecuter()->GetFileIncludes(f,IncludePaths);
+       if (obj_file.Exists())
+        {
+           for (auto & d : deps)
+           {
+                if (obj_file.GetLastModificationTime() < d.GetLastModificationTime())
+                {
+                    do_compile = true;
+                    break;
+                }
+
+           }
+       }else
+       {
+           do_compile = true;
+       }
+       if (do_compile){
+       // print("compiling " ,f.ToString(),"\n");
+       obj_file.Delete();
+       Compiler * compiler = f.GetExtention() == ".c" ? BuildToolChain->CCompiler : BuildToolChain->CPPCompiler;
+       bool status = true;
+       if (target_type == TargetType::STATIC_LIBRRY)
+       {
+       status = compiler->InvokeCommand(compiler->GetFileCompileCommandForStaticLibrary(f,obj_file,IncludePaths,ExtraCompilerCommands));
+       } else  if (target_type == TargetType::CONSOLE)
+       {
+           status = compiler->InvokeCommand(compiler->GetFileCompileCommand(f,obj_file,IncludePaths,ExtraCompilerCommands));
+       }
+       if(status)return status;
+
+       }else
+       {
+      //  print(f.ToString()," is up to date .\n");
+       }
+       ObjectFiles.push_back(obj_file);
+   }
+   if (!this->OutputFolder.IsSet())
+   {
+     OutputFolder = MiracleExecuter::GetExecuter()->GetProjectSourcePath();
+   }
+   Path output_file = OutputFolder + OutputFileName;
+   if (output_file.GetExtention() == "" )
+   {
+       if (Type == "CONSOLE_APPLICATION")
+       {
+         output_file.SetExtention(".exe");
+       } else if (Type == "STATIC_LIBRARY")
+       {
+         output_file.SetExtention(".a");
+       } else if (Type == "SHARED_LIBRARY")
+       {
+         output_file.SetExtention(".dll");
+       }else
+       {
+        print("Unknown target type  : '" , Type , "'\n");
+        return 1;
+       }
+   }
+   output_file.Delete();
+   if (Type == "CONSOLE_APPLICATION" || Type == "STATIC_LIBRARY")
+    {
+        if (Type=="CONSOLE_APPLICATION"){
+        if(BuildToolChain->StaticLinker->InvokeCommand(BuildToolChain->StaticLinker->GetObjFilesLinkCommandToExecutable(ObjectFiles,output_file,link_libraries)))
+            return 1;
+        }else if (Type=="STATIC_LIBRARY")
+        {
+            if(BuildToolChain->StaticLinker->InvokeCommand(BuildToolChain->StaticLinker->GetObjFilesLinkCommandToStaticLibrary(ObjectFiles,output_file,link_libraries)))
+                return 1;
+        }
+    } else if (Type == "SHARED_LIBRARY")
+    {
+        if(BuildToolChain->DynamicLinker->InvokeCommand(BuildToolChain->DynamicLinker->GetObjFilesLinkCommandToStaticLibrary(ObjectFiles,output_file,link_libraries)))
+            return 1;
+    } else
+    {
+        print("Unknown target type  : '" , Type , "'\n");
+    }
+    return 0;
+//   BuildCompiler->InvokeCommand(GetFileCompileCommand());
+}
+void Target::AddLinkLibrary(const char * path_str)
+{
+    Path path = path_str;
+    if (path.Exists())
+    {
+        link_libraries.push_back(Path::CurrentDir() + path);
+        return;
+    }
+    auto search_paths = MiracleExecuter::GetExecuter()->GetSearchPaths();
+    for (auto & p : search_paths)
+    {
+        Path resolved = p + path;
+        if (resolved.Exists())
+        {
+            link_libraries.push_back(resolved);
+            return;
+        }
+    }
+    /// probably a compiler library
+    link_libraries.push_back(path_str);
+}
+/** \brief Adds a source file to the build target , a source file path should be passed to this method
+ * the path should be an absolute path , or should be relative to the current working process directory
+ * or relative to the project's source folder , if the source file was never found in any of those , that
+ * will cause the build system to abort the build and exit with an error msg
+ * \param
+ * \return
+ */
+void Target::AddSourceFile (const char * path_str)
+{
+    /*Path path = path_str;
+    Path to_push;
+    if (path.IsFullPath())
+        to_push = path;
+    else
+        to_push = MiracleExecuter::GetExecuter()->GetWorkingPath() + path_str;
+    SourceFiles.push_back(to_push);*/
+    struct LocalException{std::string msg;};
+    try{
+    Path path = path_str;
+    if (path.IsFullPath())
+    {
+       if (path.Exists())
+       {
+           SourceFiles.push_back(path);
+           return;
+       }else
+       {
+           throw LocalException{ as_string(path.ToString() , " does not exist")};
+       }
+    } /// relative path
+    Path full_path = Path::CurrentDir() + path;
+    if (full_path.Exists())
+    {
+           SourceFiles.push_back(full_path);
+           return;
+    }else
+    {
+        full_path = MiracleExecuter::GetExecuter()->GetProjectSourcePath() + path;
+        if (full_path.Exists())
+        {
+           SourceFiles.push_back(full_path);
+           return;
+        }else
+        {
+           auto & search_paths = MiracleExecuter::GetExecuter()->GetSearchPaths();
+            for (auto & p :search_paths)
+            {
+                full_path = p + path;
+                if (full_path.Exists())
+                {
+                   SourceFiles.push_back(full_path);
+                   return;
+                }
+            }
+            throw LocalException{ as_string( path.ToString() , " can not be located ." ) };
+        }
+    }
+    } catch ( LocalException e )
+    {
+        print("Unable to add source file , error : ",e.msg);
+        exit(1);
+    }
+}
+void Target::AddFilesMatchsRegex(const char * regex_exr)
+{
+  std::regex regex(regex_exr);
+  AddFilesMatchsRegexInFolder(Path::CurrentDir(),regex);
+  AddFilesMatchsRegexInFolder(WorkingPath,regex);
+  for (auto& p : MiracleExecuter::GetExecuter()->GetSearchPaths())
+    AddFilesMatchsRegexInFolder(p , regex);
+}
+void Target::AddIncludePath ( const char * path_str)
+    {
+       Path path = path_str;
+       if (path.IsFullPath())
+       {
+           if (!path.Exists())
+           {
+               print(path.ToString() ,  " does not exist .");
+               exit(1);
+           }
+           IncludePaths.push_back(path);
+           return;
+       }
+       Path resolved = MiracleExecuter::GetExecuter()->GetProjectSourcePath() + path;
+    if (!resolved.Exists())
+    {
+         print(path.ToString() , " Can not be located .");
+         exit(1);
+    }
+    IncludePaths.push_back(resolved);
+    }
+#include <windows.h>
+#include <io.h>
+
+
+
+int main(int argc,char* argv[])
+{
+
+#if 0
+    std::cout<<LoadLibrary("d:/main.dll")<<std::endl;
+    std::cout<<GetLastError()<<std::endl;
+    auto f = GetProcAddress(LoadLibrary("d:/main.dll"),"func");
+    std::cout<<"f = "<<f<<std::endl;
+    std::cout<<GetLastError()<<std::endl;
+    std::function < int (void) > f1 = f;
+    if (f1)
+    {
+        std::cout<<"f1() = "<<f1()<<std::endl;
+    }else
+    {
+        print("Can't load function .");
+    }
+#endif
+   if (getenv("UMBRELLA_HOME") == nullptr)
+   {
+       print("Cannot build before setting up umbrella . ");
+       return 1;
+   }
+   MiracleExecuter * executer = MiracleExecuter::GetExecuter();
+
+    if (argc < 2)
+    {
+        Path file = Path::CurrentDir() + "build.ubs";
+        if (file.Exists())
+        {
+           executer->LoadFile(file.ToStr());
+        }else
+        {
+            print("No arguments are given and no 'build.ubbs' found !");
+            return 1;
+        }
+    }else
+    {
+        Path file = argv[1];
+        if (file.Exists())
+        {
+            if (file.GetExtention() == ".ubbs")
+            {
+                executer->LoadFile(file.ToStr());
+            } else {
+                print("Only '.ubbs' file extension are supported .");
+            }
+        }
+    }
+    delete executer;
+    return 0;
+}

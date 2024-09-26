@@ -1,0 +1,5 @@
+<map id="Compiler" name="Compiler">
+<area shape="rect" id="node2" href="$struct_executable.html" title="{Executable\n||+ Setpath()\l+ InvokeCommand()\l+ InvokeCommandHidden()\l+ GETTER()\l}" alt="" coords="96,497,273,619"/>
+<area shape="rect" id="node3" href="$class_path.html" title="{Path\n|+ buffer\l&#45; components\l&#45; CurrentPathStack\l&#45; CStringReturnBuffer\l|+ Path()\l+ Path()\l+ Path()\l+ Path()\l+ ToString()\l+ GetParent()\l+ IsFullPath()\l+ operator+()\l+ operator+()\l+ operator+()\let 28 de plus...\l+ DecomposeStringPath()\l+ DeepCopy()\l+ CopyFile()\l+ MakeDir()\l+ Create()\l+ Concat()\l+ ConcatStrPath2Str()\l+ StrPathCompare()\l+ ChDir()\l+ CurrentDir()\let 7 de plus...\l}" alt="" coords="5,5,177,435"/>
+<area shape="rect" id="node4" href="$struct_process_console_output.html" title="{ProcessConsoleOutput\n|+ output\l+ error\l|+ Clear()\l+ GetStdOut()\l+ GetStdError()\l}" alt="" coords="201,159,357,281"/>
+</map>
