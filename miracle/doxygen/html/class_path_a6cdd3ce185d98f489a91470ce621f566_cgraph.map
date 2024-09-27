@@ -1,6 +1,0 @@
-<map id="Path::MakeIfDoesntExit" name="Path::MakeIfDoesntExit">
-<area shape="rect" id="node2" href="$class_path.html#afe90d02b974e366b80014361527faf9e" title="Path::Exists" alt="" coords="217,5,312,32"/>
-<area shape="rect" id="node3" href="$class_path.html#a9302e8901abc89176975126aceb226e1" title="Path::MakeDir" alt="" coords="212,56,317,83"/>
-<area shape="rect" id="node4" href="$class_path.html#ac6d305b9aa9c4ba8dba91379a05de291" title="Path::GetComponent" alt="" coords="383,31,527,57"/>
-<area shape="rect" id="node5" href="$class_path.html#a6c9fffbe34ffdf732c26397140fbde8e" title="Path::GetComponentCount" alt="" coords="365,81,544,108"/>
-</map>

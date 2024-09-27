@@ -1,8 +1,0 @@
-<map id="Path::Path" name="Path::Path">
-<area shape="rect" id="node2" href="$class_path.html#a8c6a157a7a36b474a6ceef45a7031b86" title="Path::ConcatStrPath2Str" alt="" coords="339,58,505,85"/>
-<area shape="rect" id="node3" href="$class_path.html#af973ea741d637c18e71bcc97601f1362" title="Path::Create" alt="" coords="167,33,261,59"/>
-<area shape="rect" id="node4" href="$class_path.html#a3a575923324f17aff3d5594d9f1ae577" title="Path::CurrentDir" alt="" coords="157,83,271,110"/>
-<area shape="rect" id="node5" href="$class_path.html#abce4663bf51578b489b6bc03ecdde875" title="Path::operator+" alt="" coords="158,134,270,161"/>
-<area shape="rect" id="node6" href="$class_path.html#a221702a8716d7ad89cae169d4a65ec8f" title="Path::ResolvePath" alt="" coords="149,185,279,211"/>
-<area shape="rect" id="node7" href="$class_path.html#acb10f088c50ccdb89555e1a27709bf3b" title="Path::StrPathCompare" alt="" coords="137,235,291,262"/>
-</map>

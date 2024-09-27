@@ -1,8 +1,0 @@
-<map id="MiracleExecuter::LoadFile" name="MiracleExecuter::LoadFile">
-<area shape="rect" id="node2" href="$class_path.html#abf66b23debb145c62a11dd6aace28bbf" title="Path::AsFullPath" alt="" coords="227,5,348,32"/>
-<area shape="rect" id="node4" href="$class_path.html#a77e8966bdfb527fa8c41f161aecc25b0" title="Path::GetParent" alt="" coords="229,56,345,83"/>
-<area shape="rect" id="node5" href="$class_path.html#ab2a64c02c3e5c6df369bf2c846d111ed" title="Path::PopPath" alt="" coords="234,107,341,133"/>
-<area shape="rect" id="node6" href="$class_path.html#a13b6965acf5cebf93db36423d51f68f0" title="Path::PushPath" alt="" coords="230,157,345,184"/>
-<area shape="rect" id="node3" href="$class_path.html#a049e3b49ee7d55474ceeb5a11ad5e018" title="Path::IsFullPath" alt="" coords="396,5,511,32"/>
-<area shape="rect" id="node7" href="$class_path.html#a9675e61b268ab7056a43f2e540597e63" title="Path::ChDir" alt="" coords="409,157,498,184"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="node2" href="$class_miracle_executer.html#ae5625fbcbaf893ba19d7d2d108b2531c" title="MiracleExecuter::GetExecuter" alt="" coords="104,56,301,83"/>
-<area shape="rect" id="node3" href="$class_miracle_executer.html#a596c8ad03264271a59bcf45b586d2412" title="MiracleExecuter::GETTER" alt="" coords="349,5,524,32"/>
-<area shape="rect" id="node5" href="$class_miracle_executer.html#ac4eca38c5de01b7341886d90f86440b7" title="MiracleExecuter::LoadFile" alt="" coords="116,107,289,133"/>
-<area shape="rect" id="node4" href="$class_miracle_executer.html#a791656acc8e66243e5dfb7bbf22af02d" title="MiracleExecuter::InitLua\lState" alt="" coords="355,57,518,98"/>
-</map>

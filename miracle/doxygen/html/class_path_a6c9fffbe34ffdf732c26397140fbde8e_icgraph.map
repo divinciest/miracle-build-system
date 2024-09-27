@@ -1,6 +1,0 @@
-<map id="Path::GetComponentCount" name="Path::GetComponentCount">
-<area shape="rect" id="node2" href="$class_path.html#a0539bc706eb8e1b6168d22d0f73923ba" title="Path::IsSet" alt="" coords="241,5,328,32"/>
-<area shape="rect" id="node3" href="$class_path.html#a9302e8901abc89176975126aceb226e1" title="Path::MakeDir" alt="" coords="232,56,337,83"/>
-<area shape="rect" id="node4" href="$class_path.html#a3561899ef55b7a487b20b8905b8518e0" title="Path::DeepCopy" alt="" coords="406,31,523,57"/>
-<area shape="rect" id="node5" href="$class_path.html#a6cdd3ce185d98f489a91470ce621f566" title="Path::MakeIfDoesntExit" alt="" coords="385,81,544,108"/>
-</map>
