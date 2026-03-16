@@ -3,11 +3,31 @@
 #include <Executer.hpp>
 #include <fstream>
 #include <process.hpp>
+#include <mutex>
+#include <thread>
+#include <future>
 const char * lua_return_str(const char * str)
 {
-   static std::string buf;
+   thread_local std::string buf;
    buf = str;
    return buf.c_str();
+}
+
+// ---------------------------------------------------------------------------
+// Global output controls
+// ---------------------------------------------------------------------------
+static bool g_silent = false;
+static std::mutex g_output_mutex;
+static std::ofstream g_log_file;
+
+/// Thread-safe print: writes to stdout (unless --silent) and to log file (if open).
+template<typename ...Args>
+static void mprint(Args&&... args)
+{
+    std::string s = as_string(std::forward<Args>(args)...) + "\n";
+    std::lock_guard<std::mutex> lk(g_output_mutex);
+    if (!g_silent) { std::cout << s; std::cout.flush(); }
+    if (g_log_file.is_open()) { g_log_file << s; g_log_file.flush(); }
 }
 struct ProcessConsoleOutput
 {
@@ -63,9 +83,17 @@ struct Executable
     std::string full_cmd = path.ToString() + " " + cmd;
     TinyProcessLib::Process * process = nullptr;
     process = new TinyProcessLib::Process (full_cmd.c_str(), "", [this](const char *bytes, size_t n) {
-      *ConsoleOutput.output+=std::string(bytes, n);
+      std::string s(bytes, n);
+      *ConsoleOutput.output += s;
+      std::lock_guard<std::mutex> lk(g_output_mutex);
+      if (!g_silent) { std::cout << s; std::cout.flush(); }
+      if (g_log_file.is_open()) { g_log_file << s; g_log_file.flush(); }
     }, [this](const char *bytes, size_t n) {
-      *ConsoleOutput.error+=std::string(bytes, n);
+      std::string s(bytes, n);
+      *ConsoleOutput.error += s;
+      std::lock_guard<std::mutex> lk(g_output_mutex);
+      if (!g_silent) { std::cerr << s; std::cerr.flush(); }
+      if (g_log_file.is_open()) { g_log_file << s; g_log_file.flush(); }
     },false);
     if (!process->StartedOk())
          return Executable::InvocationResult::CANT_START_EXECUTABLE;
@@ -159,7 +187,7 @@ ToolChain* ToolChain::gcc = [] () -> ToolChain*
           rv += cmd;
           rv += " ";
       }
-      print(rv);
+      mprint(rv);
       return lua_return_str(rv.c_str());
     };
     gpp->GetFileCompileCommand  =
@@ -176,7 +204,7 @@ ToolChain* ToolChain::gcc = [] () -> ToolChain*
           rv += cmd;
           rv += " ";
       }
-      print(rv);
+      mprint(rv);
       return lua_return_str(rv.c_str());
     };
     gpp->GetFileCompileCommandForSharedLibrary  =
@@ -193,7 +221,7 @@ ToolChain* ToolChain::gcc = [] () -> ToolChain*
           rv += cmd;
           rv += " ";
       }
-      print(rv);
+      mprint(rv);
       return lua_return_str(rv.c_str());
     };
     gcc_toolchain->CPPCompiler = gpp;
@@ -209,7 +237,7 @@ ToolChain* ToolChain::gcc = [] () -> ToolChain*
   for (auto & value : link_libraries)
     rv +=  value.ToString() + " ";
 
-      print(rv);
+      mprint(rv);
    return lua_return_str(rv.c_str());
   };
     gcc_linker->GetObjFilesLinkCommandToSharedLibrary =[] ( std::vector <Path> obj_files , Path & output ,std::vector <Path> link_libraries,std::vector <Path> link_search_path, std::vector <const char*> commands) -> const char *
@@ -232,7 +260,7 @@ ToolChain* ToolChain::gcc = [] () -> ToolChain*
     rv = rv+ value + " ";
 
 
-      print(rv);
+      mprint(rv);
    return lua_return_str(rv.c_str());
   };
   gcc_linker->GetObjFilesLinkCommandToExecutable =  [] ( std::vector <Path> obj_files , Path & output ,std::vector <Path> link_libraries) -> const char *
@@ -243,7 +271,7 @@ ToolChain* ToolChain::gcc = [] () -> ToolChain*
   for (auto & value : link_libraries)
     rv +=  value.ToString() + " ";
 
-      print(rv);
+      mprint(rv);
    return lua_return_str(rv.c_str());
   };
     gcc_toolchain->StaticLinker = gcc_linker;
@@ -251,6 +279,30 @@ ToolChain* ToolChain::gcc = [] () -> ToolChain*
     return gcc_toolchain;
 }();
 #include <regex>
+
+// ---------------------------------------------------------------------------
+// Standalone process runner — used for parallel compilation.
+// Does not touch any shared Executable/ConsoleOutput state.
+// ---------------------------------------------------------------------------
+struct RunResult { int rc; std::string out; std::string err; };
+static RunResult RunProcess(const std::string& full_cmd)
+{
+    RunResult res{0,"",""};
+    auto out = std::make_shared<std::string>();
+    auto err = std::make_shared<std::string>();
+    TinyProcessLib::Process* proc = new TinyProcessLib::Process(
+        full_cmd.c_str(), "",
+        [out](const char* b, size_t n){ *out += std::string(b,n); },
+        [err](const char* b, size_t n){ *err += std::string(b,n); },
+        false);
+    if (!proc->StartedOk()) { delete proc; res.rc = -200; return res; }
+    while (!proc->try_get_exit_status(res.rc));
+    delete proc;
+    res.out = *out;
+    res.err = *err;
+    return res;
+}
+
 struct Target
 {
     std::vector <const char * >ExtraCompilerCommands;
@@ -649,66 +701,110 @@ int Target::Build()
        }
    }else
    {
-       IntermidiateDir = WorkingPath + "obj";
-       ObjDir = WorkingPath + "obj";
+       // Use Name if explicitly set, otherwise fall back to OutputFileName
+       const char* subdir = (Name && strcmp(Name,"null")!=0 && strlen(Name)>0)
+           ? Name : OutputFileName;
+       IntermidiateDir = (WorkingPath + "obj") + subdir;
+       ObjDir = (WorkingPath + "obj") + subdir;
    }
    Path::MakeIfDoesntExit(ObjDir);
    std::vector<Path> ObjectFiles;
+   bool any_recompiled = false;
    enum TargetType {CONSOLE,STATIC_LIBRRY,SHARED_LIBRARY};
    TargetType target_type = (Type == "CONSOLE_APPLICATION") ? TargetType::CONSOLE : (  (Type == "SHARED_LIBRARY") ? TargetType::SHARED_LIBRARY :  TargetType::STATIC_LIBRRY);
+
+   // ------------------------------------------------------------------
+   // Phase 1: determine which files need recompilation (sequential)
+   // ------------------------------------------------------------------
+   struct PendingCompile { Path source_file; Path obj_file; std::string full_cmd; };
+   std::vector<PendingCompile> pending;
+
    for (auto& f : SourceFiles)
    {
-       Path obj_file = ObjDir + (f.GetFileName() + BuildToolChain->ObjectFileExtention);
+       // Derive unique obj filename from path relative to WorkingPath (avoids
+       // collisions when two files in different dirs share the same base name).
+       std::string obj_filename;
+       {
+           std::string f_str = f.ToString();
+           std::string wp_str = WorkingPath.ToString();
+           for (auto& c : f_str) if (c=='\\') c='/';
+           for (auto& c : wp_str) if (c=='\\') c='/';
+           if (!wp_str.empty() && wp_str.back()!='/') wp_str+='/';
+           std::string rel = (f_str.size()>wp_str.size() && f_str.substr(0,wp_str.size())==wp_str)
+               ? f_str.substr(wp_str.size()) : f.GetFileName();
+           auto ep = rel.find_last_of('.');
+           if (ep!=std::string::npos) rel=rel.substr(0,ep);
+           for (auto& c : rel) if (c=='/'||c=='\\') c='_';
+           obj_filename = rel + BuildToolChain->ObjectFileExtention;
+       }
+       Path obj_file = ObjDir + obj_filename;
        bool do_compile = false;
        auto deps = MiracleExecuter::GetExecuter()->GetFileIncludes(f,IncludePaths);
        if (obj_file.Exists())
-        {
-           for (auto & d : deps)
-           {
-                if (obj_file.GetLastModificationTime() < d.GetLastModificationTime())
-                {
-                    do_compile = true;
-                    break;
-                }
-
-           }
+       {
+           for (auto& d : deps)
+               if (obj_file.GetLastModificationTime() < d.GetLastModificationTime())
+                   { do_compile = true; break; }
        }else
        {
            do_compile = true;
        }
-       if (do_compile){
-       // print("compiling " ,f.ToString(),"\n");
-       obj_file.Delete();
-       Compiler * compiler = f.GetExtension() == ".c" ? BuildToolChain->CCompiler : BuildToolChain->CPPCompiler;
-       bool status = true;
-       std::string command ;
-       if (target_type == TargetType::STATIC_LIBRRY)
+       if (do_compile)
        {
-
-        print(compiler->path.ToStr());
-           command = compiler->GetFileCompileCommandForStaticLibrary(f,obj_file,IncludePaths,ExtraCompilerCommands);
-       status = compiler->InvokeCommand(command.c_str());
-       } else  if (target_type == TargetType::CONSOLE)
-       {
-           command = compiler->GetFileCompileCommand(f,obj_file,IncludePaths,ExtraCompilerCommands);
-           status = compiler->InvokeCommand(command.c_str());
-       } else  if (target_type == TargetType::SHARED_LIBRARY)
-       {
-           command = compiler->GetFileCompileCommandForSharedLibrary(f,obj_file,IncludePaths,ExtraCompilerCommands);
-           status = compiler->InvokeCommand(command.c_str());
-       }
-       if(status != 0)
-       {
-          if (status == Executable::InvocationResult::CANT_START_EXECUTABLE)
-          log = as_string("Command execution failed ! \n Command :  '",compiler->Getpath().ToString() , " " ,command,"' .");
-           return status;
-       }
-
+           Compiler* compiler = f.GetExtension() == ".c" ? BuildToolChain->CCompiler : BuildToolChain->CPPCompiler;
+           std::string cmd;
+           if (target_type == TargetType::STATIC_LIBRRY)
+               cmd = compiler->GetFileCompileCommandForStaticLibrary(f,obj_file,IncludePaths,ExtraCompilerCommands);
+           else if (target_type == TargetType::CONSOLE)
+               cmd = compiler->GetFileCompileCommand(f,obj_file,IncludePaths,ExtraCompilerCommands);
+           else
+               cmd = compiler->GetFileCompileCommandForSharedLibrary(f,obj_file,IncludePaths,ExtraCompilerCommands);
+           pending.push_back({f, obj_file, compiler->path.ToString() + " " + cmd});
        }else
        {
-      //  print(f.ToString()," is up to date .\n");
+           mprint(f.ToString(), " is up to date.");
        }
        ObjectFiles.push_back(obj_file);
+   }
+
+   // ------------------------------------------------------------------
+   // Phase 2: compile pending files in parallel
+   // ------------------------------------------------------------------
+   if (!pending.empty())
+   {
+       any_recompiled = true;
+       std::vector<std::future<int>> futures;
+       futures.reserve(pending.size());
+       for (auto& pc : pending)
+       {
+           mprint("Compiling: ", pc.source_file.ToString());
+           pc.obj_file.Delete();
+           std::string full_cmd = pc.full_cmd;
+           futures.push_back(std::async(std::launch::async, [full_cmd]() -> int {
+               auto res = RunProcess(full_cmd);
+               {
+                   std::lock_guard<std::mutex> lk(g_output_mutex);
+                   if (!res.out.empty()) {
+                       if (!g_silent) { std::cout << res.out; std::cout.flush(); }
+                       if (g_log_file.is_open()) { g_log_file << res.out; g_log_file.flush(); }
+                   }
+                   if (!res.err.empty()) {
+                       if (!g_silent) { std::cerr << res.err; std::cerr.flush(); }
+                       if (g_log_file.is_open()) { g_log_file << res.err; g_log_file.flush(); }
+                   }
+               }
+               return res.rc;
+           }));
+       }
+       for (size_t i = 0; i < futures.size(); ++i)
+       {
+           int rc = futures[i].get();
+           if (rc != 0)
+           {
+               log = as_string("Compile failed for: ", pending[i].source_file.ToString());
+               return rc;
+           }
+       }
    }
    if (!this->OutputFolder.IsSet())
    {
@@ -733,25 +829,44 @@ int Target::Build()
        }
    }
 
+   // Incremental link: skip if nothing was recompiled and output already exists
+   if (!any_recompiled && output_file.Exists())
+   {
+       mprint("Target '", Name, "' is up to date — link skipped.");
+       return 0;
+   }
+
+   mprint("Linking: ", output_file.ToString());
    output_file.Delete();
    if (Type == "CONSOLE_APPLICATION" || Type == "STATIC_LIBRARY")
     {
         if (Type=="CONSOLE_APPLICATION"){
 
-        print(BuildToolChain->StaticLinker->path.ToStr());
+        mprint(BuildToolChain->StaticLinker->path.ToStr());
         if(BuildToolChain->StaticLinker->InvokeCommand(BuildToolChain->StaticLinker->GetObjFilesLinkCommandToExecutable(ObjectFiles,output_file,link_libraries)))
             return 1;
         }else if (Type=="STATIC_LIBRARY")
         {
 
-        print(BuildToolChain->StaticLinker->path.ToStr());
+        mprint(BuildToolChain->StaticLinker->path.ToStr());
             if(BuildToolChain->StaticLinker->InvokeCommand(BuildToolChain->StaticLinker->GetObjFilesLinkCommandToStaticLibrary(ObjectFiles,output_file,link_libraries)))
                 return 1;
         }
     } else if (Type == "SHARED_LIBRARY")
     {
-        print(BuildToolChain->DynamicLinker->path.ToStr());
-        if(BuildToolChain->DynamicLinker->InvokeCommand(BuildToolChain->DynamicLinker->GetObjFilesLinkCommandToSharedLibrary(ObjectFiles,output_file,link_libraries,link_search_path,commands)))
+        // For Android/Linux, we use the compiler as the linker and manually set flags
+        std::string command = "-shared ";
+        for (auto & obj : ObjectFiles) command += std::string(obj.ToStr()) + " ";
+        command += std::string("-o \"") + output_file.ToStr() + "\" ";
+        for (auto & lib : link_libraries) {
+            std::string ls = lib.ToStr();
+            if (ls.find("/") != std::string::npos || ls.find("\\") != std::string::npos || ls[0] == '-')
+                command += ls + " ";
+            else
+                command += "-l" + ls + " ";
+        }
+        mprint(BuildToolChain->CPPCompiler->path.ToStr());
+        if(BuildToolChain->CPPCompiler->InvokeCommand(command.c_str()))
             return 1;
     } else
     {
@@ -881,6 +996,16 @@ void Target::AddIncludePath ( const char * path_str)
 
 int main(int argc, const char* argv[])
 {
+   // Scan for --silent and --output-file before anything else
+   for (int i = 1; i < argc; ++i)
+   {
+       std::string a = argv[i];
+       if (a == "--silent")
+           g_silent = true;
+       else if (a == "--output-file" && i + 1 < argc)
+           g_log_file.open(argv[++i], std::ios::out | std::ios::trunc);
+   }
+
    if (getenv("MIRACLE_HOME") == nullptr)
    {
        print("Cannot build before setting up umbrella . ");
@@ -888,8 +1013,19 @@ int main(int argc, const char* argv[])
    }
    MiracleExecuter * executer = MiracleExecuter::GetExecuter();
 
-    if (argc < 2)
-    {
+   // Find first non-flag argument (the script file)
+   int script_idx = -1;
+   for (int i = 1; i < argc; ++i)
+   {
+       std::string a = argv[i];
+       if (a == "--silent") continue;
+       if (a == "--output-file") { ++i; continue; }
+       script_idx = i;
+       break;
+   }
+
+   if (script_idx == -1)
+   {
         Path file = Path::CurrentDir() + "build"  SCRIPT_FILE_EXTENSION;
         if (file.Exists())
         {
@@ -899,12 +1035,17 @@ int main(int argc, const char* argv[])
             print("No arguments are given and no 'build" SCRIPT_FILE_EXTENSION " found !");
             return 1;
         }
-    }else
-    {
-        Path file = argv[1];
-        for (int  i = 2;i<argc;i+=2)
+   }else
+   {
+        Path file = argv[script_idx];
+        // Key-value pairs follow the script file (skip any --silent flags)
+        for (int i = script_idx + 1; i < argc; i += 2)
         {
-            executer->SetVariable(argv[i],argv[i+1]);
+            std::string a = argv[i];
+            if (a == "--silent") { i -= 1; continue; }
+            if (a == "--output-file") { continue; } // flag + value both consumed by i+=2
+            if (i + 1 < argc)
+                executer->SetVariable(argv[i], argv[i+1]);
         }
         if (file.Exists())
         {
@@ -915,7 +1056,7 @@ int main(int argc, const char* argv[])
                 print("Only '" SCRIPT_FILE_EXTENSION "' file extension are supported .");
             }
         }
-    }
+   }
     delete executer;
     return 0;
 }
