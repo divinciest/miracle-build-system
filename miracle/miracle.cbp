@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="miracle" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="miracle" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="obj/miracle" prefix_auto="1" extension_auto="1" />
+				<Option object_output="C:/Users/GAMER/Desktop/miracle/.objs" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++1z" />
+			<Add directory="../common" />
+			<Add directory="../common/liblua" />
+			<Add directory="../common/tiny-process-library" />
+		</Compiler>
+		<Linker>
+			<Add option="-lLibLua" />
+			<Add option="-lstdc++fs" />
+			<Add option="-ltiny-process-library" />
+			<Add directory="../common/liblua" />
+			<Add directory="../common/tiny-process-library" />
+		</Linker>
+		<Unit filename="../common/Executer.hpp" />
+		<Unit filename="../common/Path/path.cpp" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

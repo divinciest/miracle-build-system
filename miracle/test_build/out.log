@@ -1,0 +1,5 @@
+ -c "D:/Umbrella/miracle-build-system/miracle/test_build/hello.cpp" -o"D:/Umbrella/miracle-build-system/miracle/test_build/obj/hello/hello.o"
+Compiling: D:/Umbrella/miracle-build-system/miracle/test_build/hello.cpp
+Linking: D:/Umbrella/miracle-build-system/miracle/test_build/hello.exe
+C:/Program Files/CodeBlocks/MinGW/bin/g++.exe
+-o D:/Umbrella/miracle-build-system/miracle/test_build/hello.exe D:/Umbrella/miracle-build-system/miracle/test_build/obj/hello/hello.o 

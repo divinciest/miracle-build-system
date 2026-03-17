@@ -1,0 +1,2 @@
+os.execute("echo 'Miracle is working!' > miracle_success.txt")
+os.exit(0)

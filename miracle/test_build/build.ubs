@@ -1,0 +1,10 @@
+t = Target.new()
+t.BuildToolChain = GCC_TOOLCHAIN
+t.Type = "CONSOLE_APPLICATION"
+t:SetName("hello")
+t:SetOutputFileName("hello")
+t:AddSourceFile("hello.cpp")
+GCC_TOOLCHAIN.CPPCompiler:SetPath(Path.new("C:/Program Files/CodeBlocks/MinGW/bin/g++.exe"))
+GCC_TOOLCHAIN:SetLinkerPath(Path.new("C:/Program Files/CodeBlocks/MinGW/bin/g++.exe"))
+local r = t:Build()
+if r == 0 then print("OK") else print("FAIL: " .. r) end

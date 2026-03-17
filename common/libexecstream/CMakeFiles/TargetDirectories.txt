@@ -1,0 +1,2 @@
+C:/Users/GAMER/Desktop/Umbrella/BuildSystem/common/libexecstream/test/CMakeFiles/exec-stream-test.dir
+C:/Users/GAMER/Desktop/Umbrella/BuildSystem/common/libexecstream/src/CMakeFiles/libexecstream.dir
