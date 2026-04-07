@@ -380,12 +380,12 @@ static int os_exit (lua_State *L) {
 }
 
 
-#ifdef WIN32 || defined  __WIN32
+#if defined(WIN32) || defined(__WIN32)
 #include <windows.h>
 #endif // WIN32
 
 
-#ifdef WIN32 || defined __WIN32
+#if defined(WIN32) || defined(__WIN32)
 
 
 BOOL IsRunAsAdministrator()
@@ -478,7 +478,7 @@ void ElevateNow()
 #endif // WIN32
 
 static int os_elevatetoadmin (lua_State *L) {
-#ifdef WIN32 || defined  __WIN32
+#if defined(WIN32) || defined(__WIN32)
         ElevateNow();
 #else
 #error "No implementation for this platform"
@@ -487,7 +487,7 @@ static int os_elevatetoadmin (lua_State *L) {
 }
 static int os_isadmin (lua_State *L) {
 
-#ifdef WIN32 || defined  __WIN32
+#if defined(WIN32) || defined(__WIN32)
   lua_pushboolean(L,IsRunAsAdministrator());
 #else
 #error "No implementation for this platform"

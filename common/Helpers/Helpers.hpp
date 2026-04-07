@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <utility>
+#include <type_traits>
 namespace Helpers
 {
     namespace String{
@@ -33,12 +35,18 @@ namespace Helpers
     }
 }
 
+template<typename T>
+auto safe_arg(T&& arg) {
+    if constexpr (std::is_convertible_v<T, const char*>) {
+        if (arg == nullptr) return (const char*)"(null)";
+    }
+    return std::forward<T>(arg);
+}
 template<typename ...Args>
 std::string as_string(Args&&... args)
 {
-
     std::stringstream ss;
-    (ss << ... << args);
+    (ss << ... << safe_arg(std::forward<Args>(args)));
     return ss.str();
 }
 template<typename ...Args>

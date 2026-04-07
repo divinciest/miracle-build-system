@@ -1,0 +1,36 @@
+-- Miracle Build System Test Script
+
+-- Use the pre-configured GCC toolchain
+tc = GCC_TOOLCHAIN
+tc.CPPCompiler:SetPath(Path.new("C:/Program Files/CodeBlocks/MinGW/bin/g++.exe"))
+tc.StaticLinker:SetPath(Path.new("C:/Program Files/CodeBlocks/MinGW/bin/g++.exe"))
+
+-- Target configuration
+t = Target.new()
+t:SetName("hello_test")
+t.Type = "CONSOLE_APPLICATION"
+t:SetOutputFileName("hello_test")
+t.BuildToolChain = tc
+
+-- Directories
+t:SetBuildDir(Path.new("test_workspace/obj"))
+t:SetOutputFolder(Path.new("test_workspace/bin"))
+t:AddIncludePath("test_workspace/src")
+
+-- Source files
+t:AddSourceFile("test_workspace/src/main.cpp")
+t:AddSourceFile("test_workspace/src/utils.cpp")
+
+-- Global configuration
+graph.AddConfig(MBS_CONFIG)
+
+-- Build execution
+mbs_print("Starting build of hello_test...")
+graph.Register(t)
+rc = graph.BuildAll()
+
+if rc == 0 then
+    mbs_print("SUCCESS: hello_test built.")
+else
+    mbs_error("FAILURE: Build failed with rc=" .. tostring(rc))
+end

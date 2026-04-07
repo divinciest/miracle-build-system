@@ -26,6 +26,7 @@ class Executer
             .addFunction("GetVariableValueStr",VariablesExpander::GetVariableValueStr)
             .addFunction("Eval",VariablesExpander::EvalToCString);
             std::function < Path (Path *  ,const char * ) > PathPlus  = []  (Path * thiz ,const char * that) -> Path {
+                if (!that) return *thiz;
                 return (*thiz) + (that);
                 };
           static auto PathClass =  kaguya::UserdataMetatable<Path>()

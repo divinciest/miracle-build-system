@@ -18,10 +18,10 @@ Path::Path(std::string s)
     if(!DecomposeStringPath(Helpers::String::RemoveSpacesFromSides(s),components))
       throw std::invalid_argument("Given string is not a valide path");
 }
-Path::Path(const char * s):Path(std::string(s))
+Path::Path(const char * s):Path(s?std::string(s):std::string(""))
 {
 }
-Path Path::GetParent()
+Path Path::GetParent() const
 {
     if (components.size() == 0) return *this;
     Path parent = *this;
@@ -29,7 +29,7 @@ Path Path::GetParent()
     return parent;
 }
 Path::Path(const Path& p):components(p.components) {}
-std::string Path::GetExtension()
+std::string Path::GetExtension() const
 {
     if (components.size() == 0) return "";
     std::string last = components.back();
@@ -169,19 +169,19 @@ bool Path::IsFolder() const
     stat(path_cpp_str.c_str(), &path_stat);
     return S_ISDIR(path_stat.st_mode);
 }
-bool Path::IsFile()
+bool Path::IsFile() const
 {
     struct stat path_stat;
     std::string path_cpp_str = ToString();
     stat(path_cpp_str.c_str(), &path_stat);
     return S_ISREG(path_stat.st_mode);
 }
-Path Path::operator+ (std::string s)
+Path Path::operator+ (std::string s) const
 {
     Path p(s);
     return (*this)+p;
 }
-Path Path::operator+ (const char* s)
+Path Path::operator+ (const char* s) const
 {
     Path p(s);
     return (*this)+p;
@@ -193,7 +193,7 @@ Path Path::operator=(Path p)
     return p;
 }
 
-const char* Path::ToStr()
+const char* Path::ToStr() const
 {
     UpdateBuffer();
     return & buffer[0];
@@ -221,7 +221,7 @@ Path Path::operator + (const Path& p1) const
 std::string Path::ToString() const
 {
     std::string rv;
-    if (!components.size()>1)
+    if (components.empty())
         rv.push_back(DEFAULT_SEPERATOR);
     for(unsigned int c=0; c<components.size(); c++)
     {
@@ -338,12 +338,12 @@ void Path::ReplaceComponent(unsigned int index,std::string c)
 {
     components[index] = c;
 }
-Path::operator const char* ()
+Path::operator const char* () const
 {
     UpdateBuffer();
     return buffer;
 }
-void Path::UpdateBuffer()
+void Path::UpdateBuffer() const
 {
     strcpy(buffer,ToString().c_str());
 }
@@ -376,7 +376,7 @@ void Path::SetExtention(std::string ex)
         else
     components.back() += ex;
 }
-std::string Path::GetFileName()
+std::string Path::GetFileName() const
 {
     if (components.size() == 0) return "";
     std::string last = components.back();
@@ -394,7 +394,7 @@ Path Path::AsFullPath()
     if (this->IsFullPath()) return *this;
     return Path::CurrentDir() + *this;
 }
-bool Path::Exists()
+bool Path::Exists() const
 {
     return  std::experimental::filesystem::exists(ToStr());
 }

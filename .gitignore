@@ -2,3 +2,5 @@
 *.dll
 *.bat
 *.exe
+miracle/test_build/*
+miracle/test_workspace/*
